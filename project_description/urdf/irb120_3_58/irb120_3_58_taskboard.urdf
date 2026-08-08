@@ -1,0 +1,521 @@
+<?xml version="1.0"?>
+<robot name="taskboard_environment">
+
+  <!-- World Frame Root -->
+  <link name="world"/>
+
+  <!-- =================================================================== -->
+  <!-- ENVIRONMENT OBJECTS & TASKBOARD LINKS                               -->
+  <!-- =================================================================== -->
+
+  <link name="taskboard_link">
+    <inertial>
+      <mass value="1.0" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Taskboard_Origin.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Taskboard_Origin.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="tray_link">
+    <inertial>
+      <mass value="0.5" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Tray.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Tray.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="m16_nut_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M16_Nut.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M16_Nut.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="m12_nut_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M12_Nut.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M12_Nut.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="m8_nut_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M8_Nut.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M8_Nut.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="m4_nut_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M4_Nut.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M4_Nut.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="ket16_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET16.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET16.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="ket12_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET12.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET12.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="ket8_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET8.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET8.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="ket41_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET4.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET4.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gear_large_link">
+    <inertial>
+      <mass value="0.02" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Large.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Large.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gear_medium_link">
+    <inertial>
+      <mass value="0.02" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Medium.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Medium.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gear_small_link">
+    <inertial>
+      <mass value="0.02" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Small.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Small.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rcog16-50_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG16-50.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG16-50.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rcog12-50_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG12-50.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG12-50.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rcog8-50_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG8-50.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG8-50.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rcog4-50_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG4-50.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG4-50.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="usb_male_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/USB_Male.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/USB_Male.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="bnc_male_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/BNC_Male.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/BNC_Male.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="dsub_male_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/DSUB_Male.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/DSUB_Male.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rj45_male_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RJ45_Male.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RJ45_Male.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="mcon-e10-sp_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/MCON-E10-SP.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/MCON-E10-SP.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- =================================================================== -->
+  <!-- ENVIRONMENT JOINTS (FIXED TO WORLD)                                 -->
+  <!-- =================================================================== -->
+
+  <joint name="taskboard_joint" type="fixed">
+    <parent link="world" />
+    <child link="taskboard_link" />
+    <origin xyz="-0.2 -0.315 -0.0045" rpy="0 0 0" />
+  </joint>
+
+  <joint name="tray_joint" type="fixed">
+    <parent link="world" />
+    <child link="tray_link" />
+    <origin xyz="0.2 -0.32 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="m16_nut_joint" type="fixed">
+    <parent link="world" />
+    <child link="m16_nut_link" />
+    <origin xyz="0.235 -0.432 0.012" rpy="-0.000407 1.57059 -0.000407" />
+  </joint>
+
+  <joint name="m12_nut_joint" type="fixed">
+    <parent link="world" />
+    <child link="m12_nut_link" />
+    <origin xyz="0.341 -0.332 0.004" rpy="0 0 0" />
+  </joint>
+
+  <joint name="m8_nut_joint" type="fixed">
+    <parent link="world" />
+    <child link="m8_nut_link" />
+    <origin xyz="0.204 -0.251 0.003" rpy="0 0 0" />
+  </joint>
+
+  <joint name="m4_nut_joint" type="fixed">
+    <parent link="world" />
+    <child link="m4_nut_link" />
+    <origin xyz="0.052 -0.198 0.002" rpy="0 0 0" />
+  </joint>
+
+  <joint name="ket16_joint" type="fixed">
+    <parent link="world" />
+    <child link="ket16_link" />
+    <origin xyz="0.107 -0.171 0.025" rpy="0 0 0" />
+  </joint>
+
+  <joint name="ket12_joint" type="fixed">
+    <parent link="world" />
+    <child link="ket12_link" />
+    <origin xyz="0.059 -0.372 0.004" rpy="1.571 0 0" />
+  </joint>
+
+  <joint name="ket8_joint" type="fixed">
+    <parent link="world" />
+    <child link="ket8_link" />
+    <origin xyz="0.137 -0.413 0.004" rpy="0.000407 -1.57059 -0.000407" />
+  </joint>
+
+  <joint name="ket4_joint" type="fixed">
+    <parent link="world" />
+    <child link="ket41_link" />
+    <origin xyz="0.347 -0.449 0.002" rpy="1.571 0 0" />
+  </joint>
+
+  <joint name="gear_large_joint" type="fixed">
+    <parent link="world" />
+    <child link="gear_large_link" />
+    <origin xyz="0.078 -0.278 0.01" rpy="3.14118 0 -3.14118" />
+  </joint>
+
+  <joint name="gear_medium_joint" type="fixed">
+    <parent link="world" />
+    <child link="gear_medium_link" />
+    <origin xyz="0.271 -0.314 0.01" rpy="3.14118 0 3.14118" />
+  </joint>
+
+  <joint name="gear_small_joint" type="fixed">
+    <parent link="world" />
+    <child link="gear_small_link" />
+    <origin xyz="0.343 -0.259 0.01" rpy="-3.14118 0 -3.14118" />
+  </joint>
+
+  <joint name="rcog16_50_joint" type="fixed">
+    <parent link="world" />
+    <child link="rcog16-50_link" />
+    <origin xyz="0.276 -0.249 0.024" rpy="0 0 0" />
+  </joint>
+
+  <joint name="rcog12_50_joint" type="fixed">
+    <parent link="world" />
+    <child link="rcog12-50_link" />
+    <origin xyz="0.194 -0.382 0.025" rpy="0 0 0" />
+  </joint>
+
+  <joint name="rcog8_50_joint" type="fixed">
+    <parent link="world" />
+    <child link="rcog8-50_link" />
+    <origin xyz="0.065 -0.466 0.025" rpy="0 0 0" />
+  </joint>
+
+  <joint name="rcog4_50_joint" type="fixed">
+    <parent link="world" />
+    <child link="rcog4-50_link" />
+    <origin xyz="0.196 -0.175 0.002" rpy="-0.01159 -1.57059 0.01159" />
+  </joint>
+
+  <joint name="usb_male_joint" type="fixed">
+    <parent link="world" />
+    <child link="usb_male_link" />
+    <origin xyz="0.294 -0.462 0.004" rpy="-1.571 0 -3.14118" />
+  </joint>
+
+  <joint name="bnc_male_joint" type="fixed">
+    <parent link="world" />
+    <child link="bnc_male_link" />
+    <origin xyz="0.133 -0.214 0.011" rpy="3.14118 0 0" />
+  </joint>
+
+  <joint name="dsub_male_joint" type="fixed">
+    <parent link="world" />
+    <child link="dsub_male_link" />
+    <origin xyz="0.166 -0.325 0.008" rpy="-1.571 0 0" />
+  </joint>
+
+  <joint name="rj45_male_joint" type="fixed">
+    <parent link="world" />
+    <child link="rj45_male_link" />
+    <origin xyz="0.137 -0.479 0.00688" rpy="0 0 0" />
+  </joint>
+
+  <joint name="mcon_e10_sp_joint" type="fixed">
+    <parent link="world" />
+    <child link="mcon-e10-sp_link" />
+    <origin xyz="0.30978 -0.17922 0.01978" rpy="0 0 0" />
+  </joint>
+
+</robot>

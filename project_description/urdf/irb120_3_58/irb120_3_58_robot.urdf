@@ -1,0 +1,311 @@
+<?xml version="1.0"?>
+<robot name="irb120_assembly">
+
+  <!-- =================================================================== -->
+  <!-- ROBOT LINKS                                                         -->
+  <!-- =================================================================== -->
+
+  <link name="base_link">
+    <inertial>
+      <mass value="6.215" />
+      <inertia ixx="0.0247272" ixy="-0.000080784" ixz="0.00130902" iyy="0.0491285" iyz="-0.0000080419" izz="0.0472376" />
+      <origin xyz="-0.04204 0.0000801 0.07964" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/base_link.stl" />
+      </geometry>
+      <material name="mat_base_link">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/base_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_1">
+    <inertial>
+      <mass value="3.067" />
+      <inertia ixx="0.0142175" ixy="-0.0000128579" ixz="-0.0000231364" iyy="0.0144041" iyz="0.0000193404" izz="0.0104533" />
+      <origin xyz="0.0000977 -0.00012 0.23841" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_1.stl" />
+      </geometry>
+      <material name="mat_link_1">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_1.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_2">
+    <inertial>
+      <mass value="3.909" />
+      <inertia ixx="0.0603111" ixy="0.00000983431" ixz="0.0000572407" iyy="0.041569" iyz="-0.00050497" izz="0.0259548" />
+      <origin xyz="0.00078 -0.00212 0.10124" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_2.stl" />
+      </geometry>
+      <material name="mat_link_2">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_2.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_3">
+    <inertial>
+      <mass value="2.944" />
+      <inertia ixx="0.00835606" ixy="-0.0000801545" ixz="0.00142884" iyy="0.016713" iyz="-0.000182227" izz="0.0126984" />
+      <origin xyz="0.02281 0.00106 0.05791" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_3.stl" />
+      </geometry>
+      <material name="mat_link_3">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_3.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_4">
+    <inertial>
+      <mass value="1.328" />
+      <inertia ixx="0.00284661" ixy="-0.0000212765" ixz="-0.000016435" iyy="0.00401346" iyz="0.0000131336" izz="0.0052535" />
+      <origin xyz="0.2247 0.00015 0.00041" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_4.stl" />
+      </geometry>
+      <material name="mat_link_4">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_4.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_5">
+    <inertial>
+      <mass value="0.546" />
+      <inertia ixx="0.000404891" ixy="0.00000161943" ixz="0.000000846805" iyy="0.000892825" iyz="-0.0000000151792" izz="0.000815468" />
+      <origin xyz="-0.00109 0.0000368 0.0000622" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_5.stl" />
+      </geometry>
+      <material name="mat_link_5">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_5.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_6">
+    <inertial>
+      <mass value="0.137" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
+      <origin xyz="-0.00706 -0.00017 -0.00000132" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_6.stl" />
+      </geometry>
+      <material name="mat_link_6">
+        <color rgba="0.1 0.1 0.1 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_6.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- FIXED: Renamed tool0_link to tool0 to match SRDF chain tip -->
+  <link name="tool0">
+    <inertial>
+      <mass value="0.0001" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+  </link>
+
+  <!-- =================================================================== -->
+  <!-- GRIPPER LINKS                                                       -->
+  <!-- =================================================================== -->
+
+  <link name="gripper_base_link">
+    <inertial>
+      <mass value="0.2" />
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001" />
+    </inertial>
+    <visual name="gripper_base_visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/base_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="mat_gripper_base_link">
+        <color rgba="0.7 0.7 0.7 1.0" />
+      </material>
+    </visual>
+    <collision name="gripper_base_collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/base_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- FIXED: Renamed finger link to match SRDF group onrobot_2fg7 -->
+  <link name="right_onrobot_2fg7_finger_link">
+    <inertial>
+      <mass value="0.05" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual name="right_visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/finger_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="mat_gripper_right_attachment">
+        <color rgba="0.7 0.7 0.7 1.0" />
+      </material>
+    </visual>
+    <collision name="right_collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/finger_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- FIXED: Renamed finger link to match SRDF group onrobot_2fg7 -->
+  <link name="left_onrobot_2fg7_finger_link">
+    <inertial>
+      <mass value="0.05" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual name="left_visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/finger_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="mat_gripper_left_attachment">
+        <color rgba="0.7 0.7 0.7 1.0" />
+      </material>
+    </visual>
+    <collision name="left_collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/finger_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- =================================================================== -->
+  <!-- ROBOT JOINTS                                                        -->
+  <!-- =================================================================== -->
+
+  <joint name="joint_1" type="revolute">
+    <parent link="base_link" />
+    <child link="link_1" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.87979" upper="2.87979" effort="100" velocity="4.36332" />
+  </joint>
+
+  <joint name="joint_2" type="revolute">
+    <parent link="link_1" />
+    <child link="link_2" />
+    <origin xyz="0 0 0.29" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-1.91986" upper="1.91986" effort="100" velocity="4.36332" />
+  </joint>
+
+  <joint name="joint_3" type="revolute">
+    <parent link="link_2" />
+    <child link="link_3" />
+    <origin xyz="0 0 0.27" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-1.91986" upper="1.22173" effort="100" velocity="4.36332" />
+  </joint>
+
+  <joint name="joint_4" type="revolute">
+    <parent link="link_3" />
+    <child link="link_4" />
+    <origin xyz="0 0 0.07" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-2.79253" upper="2.79253" effort="100" velocity="7.33038" />
+  </joint>
+
+  <joint name="joint_5" type="revolute">
+    <parent link="link_4" />
+    <child link="link_5" />
+    <origin xyz="0.302 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-2.094395" upper="2.094395" effort="100" velocity="10.29744" />
+  </joint>
+
+  <joint name="joint_6" type="revolute">
+    <parent link="link_5" />
+    <child link="link_6" />
+    <origin xyz="0.072 0 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-6.98132" upper="6.98132" effort="100" velocity="10.471975" />
+  </joint>
+
+  <!-- FIXED: Child updated to tool0 -->
+  <joint name="tool0_joint" type="fixed">
+    <parent link="link_6" />
+    <child link="tool0" />
+    <origin xyz="0 0 0" rpy="0 1.570796 0" />
+  </joint>
+
+  <!-- FIXED: Parent updated to tool0 -->
+  <joint name="gripper_base_joint" type="fixed">
+    <parent link="tool0" />
+    <child link="gripper_base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <!-- FIXED: Actuated Prismatic Joint created matching SRDF joint "gripper_gripper_joint" -->
+  <joint name="gripper_gripper_joint" type="prismatic">
+    <parent link="gripper_base_link" />
+    <child link="left_onrobot_2fg7_finger_link" />
+    <origin xyz="-0.02 0 0.115" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0.0" upper="0.038" effort="100" velocity="0.1" />
+  </joint>
+
+  <!-- FIXED: Child updated to right_onrobot_2fg7_finger_link -->
+  <joint name="gripper_right_joint" type="fixed">
+    <parent link="gripper_base_link" />
+    <child link="right_onrobot_2fg7_finger_link" />
+    <origin xyz="0.02 0 0.115" rpy="0 0 3.14159" />
+  </joint>
+
+</robot>

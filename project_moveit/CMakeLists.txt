@@ -1,17 +1,26 @@
 cmake_minimum_required(VERSION 3.8)
 project(project_moveit)
 
+# -----------------------------------------------------------------------------
+# 1. Policies & Compiler Flags
+# -----------------------------------------------------------------------------
+# Suppress PCL / FLANN CMP0144 policy warning
+if(POLICY CMP0144)
+  cmake_policy(SET CMP0144 NEW)
+endif()
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# find dependencies
+# -----------------------------------------------------------------------------
+# 2. Dependencies
+# -----------------------------------------------------------------------------
 find_package(ament_cmake REQUIRED)
 find_package(PCL REQUIRED COMPONENTS common features filters io kdtree search segmentation sample_consensus surface)
 find_package(yaml-cpp REQUIRED)
-
 
 set(COMMON_DEPS
   rclcpp
@@ -38,10 +47,8 @@ foreach(package ${COMMON_DEPS} ${MOVEIT_DEPS})
   find_package(${package} REQUIRED)
 endforeach()
 
-# 3. Global Definitions
-
 # -----------------------------------------------------------------------------
-# 4. Shared Library
+# 3. Shared Library
 # -----------------------------------------------------------------------------
 add_library(${PROJECT_NAME}_lib SHARED
   src/planning_mgi.cpp
@@ -59,48 +66,42 @@ target_link_libraries(${PROJECT_NAME}_lib
 ament_target_dependencies(${PROJECT_NAME}_lib ${COMMON_DEPS} ${MOVEIT_DEPS})
 
 # -----------------------------------------------------------------------------
-# 5. Executables
+# 4. Executables
 # -----------------------------------------------------------------------------
-
-# Perception Server
 add_executable(model_and_state_service src/model_and_state_service.cpp)
 add_executable(object_tf src/object_tf.cpp)
 add_executable(mgi_main src/mgi_main.cpp)
+add_executable(planning_mtc src/planning_mtc.cpp) # Added MTC Executable
 
-# Link libraries
-
-# target_link_libraries(model_and_state_service ${PROJECT_NAME}_lib)
+# Target Dependencies
 ament_target_dependencies(model_and_state_service ${COMMON_DEPS} ${MOVEIT_DEPS})
 ament_target_dependencies(object_tf ${COMMON_DEPS} ${MOVEIT_DEPS})
 ament_target_dependencies(mgi_main ${COMMON_DEPS} ${MOVEIT_DEPS})
+ament_target_dependencies(planning_mtc ${COMMON_DEPS} ${MOVEIT_DEPS})
 
+# Link Libraries
 target_link_libraries(model_and_state_service ${PROJECT_NAME}_lib)
 target_link_libraries(object_tf ${PROJECT_NAME}_lib)
 target_link_libraries(mgi_main ${PROJECT_NAME}_lib)
+target_link_libraries(planning_mtc ${PROJECT_NAME}_lib)
 
 # -----------------------------------------------------------------------------
-# 6. Install & Packaging
+# 5. Install & Packaging
 # -----------------------------------------------------------------------------
-
-install(TARGETS model_and_state_service object_tf
+install(TARGETS 
+  model_and_state_service 
+  object_tf 
+  mgi_main 
+  planning_mtc
+  ${PROJECT_NAME}_lib
   DESTINATION lib/${PROJECT_NAME}
 )
 
 install(DIRECTORY include/ DESTINATION include)
-# install(DIRECTORY config DESTINATION share/${PROJECT_NAME})
-
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # comment the line when a copyright and license is added to all source files
   set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # comment the line when this package is in a git repo and when
-  # a copyright and license is added to all source files
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()

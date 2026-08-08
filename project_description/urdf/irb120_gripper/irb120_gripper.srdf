@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot name="irb120_assembly">
+
+    <!-- =================================================================== -->
+    <!-- PLANNING GROUPS                                                     -->
+    <!-- =================================================================== -->
     <group name="irb120_arm">
         <chain base_link="base_link" tip_link="tool0"/>
     </group>
@@ -11,34 +15,51 @@
         <joint name="gripper_gripper_joint"/> 
     </group>
 
+    <!-- =================================================================== -->
+    <!-- GROUP STATES                                                        -->
+    <!-- =================================================================== -->
     <group_state name="home" group="irb120_arm">
-        <joint name="joint_1" value="0"/><joint name="joint_2" value="0"/>
-        <joint name="joint_3" value="0"/><joint name="joint_4" value="0"/>
-        <joint name="joint_5" value="0"/><joint name="joint_6" value="0"/>
+        <joint name="joint_1" value="0"/>
+        <joint name="joint_2" value="0"/>
+        <joint name="joint_3" value="0"/>
+        <joint name="joint_4" value="0"/>
+        <joint name="joint_5" value="0"/>
+        <joint name="joint_6" value="0"/>
     </group_state>
 
     <group_state name="open" group="onrobot_2fg7">
-        <joint name="gripper_gripper_joint" value="0.039"/>
+        <joint name="gripper_gripper_joint" value="0.038"/>
     </group_state>
     
     <group_state name="close" group="onrobot_2fg7">
         <joint name="gripper_gripper_joint" value="0.001"/>
     </group_state>
 
+    <!-- =================================================================== -->
+    <!-- END EFFECTOR                                                        -->
+    <!-- =================================================================== -->
     <end_effector name="gripper" parent_link="tool0" group="onrobot_2fg7" parent_group="irb120_arm"/>
 
-    <!-- <disable_collisions link1="link_6" link2="gripper_base_link" reason="Adjacent"/>
-    <disable_collisions link1="link_5" link2="gripper_base_link" reason="Never"/>
-    <disable_collisions link1="gripper_base_link" link2="left_onrobot_2fg7_finger_link" reason="Adjacent"/>
-    <disable_collisions link1="gripper_base_link" link2="right_onrobot_2fg7_finger_link" reason="Adjacent"/>
-    <disable_collisions link1="left_onrobot_2fg7_finger_link" link2="right_onrobot_2fg7_finger_link" reason="Default"/> -->
-
+    <!-- =================================================================== -->
+    <!-- DISABLE COLLISIONS                                                  -->
+    <!-- =================================================================== -->
+    <!-- Arm Internal Collisions -->
     <disable_collisions link1="base_link" link2="link_1" reason="Adjacent"/>
     <disable_collisions link1="link_1" link2="link_2" reason="Adjacent"/>
     <disable_collisions link1="link_2" link2="link_3" reason="Adjacent"/>
     <disable_collisions link1="link_3" link2="link_4" reason="Adjacent"/>
     <disable_collisions link1="link_4" link2="link_5" reason="Adjacent"/>
     <disable_collisions link1="link_5" link2="link_6" reason="Adjacent"/>
-    <disable_collisions link1="gripper_onrobot_2fg7right_finger_link" link2="right_onrobot_2fg7right_finger_link" reason="Adjacent"/>
-    <disable_collisions link1="gripper_onrobot_2fg7left_finger_link" link2="left_onrobot_2fg7left_finger_link" reason="Adjacent"/>
+
+    <!-- Arm to Gripper Collisions -->
+    <disable_collisions link1="link_6" link2="gripper_base_link" reason="Adjacent"/>
+    <disable_collisions link1="link_5" link2="gripper_base_link" reason="Never"/>
+
+    <!-- Gripper Internal Collisions -->
+    <disable_collisions link1="gripper_base_link" link2="left_onrobot_2fg7_finger_link" reason="Adjacent"/>
+    <disable_collisions link1="gripper_base_link" link2="right_onrobot_2fg7_finger_link" reason="Adjacent"/>
+    <disable_collisions link1="left_onrobot_2fg7_finger_link" link2="right_onrobot_2fg7_finger_link" reason="Default"/>
+    <disable_collisions link1="link_6" link2="left_onrobot_2fg7_finger_link" reason="Never"/>
+    <disable_collisions link1="link_6" link2="right_onrobot_2fg7_finger_link" reason="Never"/>
+
 </robot>

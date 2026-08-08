@@ -1,0 +1,812 @@
+<?xml version="1.0"?>
+<robot name="abb_irb120_3_58_world">
+
+  <!-- =================================================================== -->
+  <!-- ROBOT ARMS & LINK TREE                                              -->
+  <!-- =================================================================== -->
+
+  <link name="base_link">
+    <inertial>
+      <mass value="6.215" />
+      <inertia ixx="0.0247272" ixy="-0.000080784" ixz="0.00130902" iyy="0.0491285" iyz="-0.0000080419" izz="0.0472376" />
+      <origin xyz="-0.04204 0.0000801 0.07964" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/base_link.stl" />
+      </geometry>
+      <material name="mat_base_link">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/base_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_1">
+    <inertial>
+      <mass value="3.067" />
+      <inertia ixx="0.0142175" ixy="-0.0000128579" ixz="-0.0000231364" iyy="0.0144041" iyz="0.0000193404" izz="0.0104533" />
+      <origin xyz="0.0000977 -0.00012 0.23841" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_1.stl" />
+      </geometry>
+      <material name="mat_link_1">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_1.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_2">
+    <inertial>
+      <mass value="3.909" />
+      <inertia ixx="0.0603111" ixy="0.00000983431" ixz="0.0000572407" iyy="0.041569" iyz="-0.00050497" izz="0.0259548" />
+      <origin xyz="0.00078 -0.00212 0.10124" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_2.stl" />
+      </geometry>
+      <material name="mat_link_2">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_2.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_3">
+    <inertial>
+      <mass value="2.944" />
+      <inertia ixx="0.00835606" ixy="-0.0000801545" ixz="0.00142884" iyy="0.016713" iyz="-0.000182227" izz="0.0126984" />
+      <origin xyz="0.02281 0.00106 0.05791" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_3.stl" />
+      </geometry>
+      <material name="mat_link_3">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_3.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_4">
+    <inertial>
+      <mass value="1.328" />
+      <inertia ixx="0.00284661" ixy="-0.0000212765" ixz="-0.000016435" iyy="0.00401346" iyz="0.0000131336" izz="0.0052535" />
+      <origin xyz="0.2247 0.00015 0.00041" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_4.stl" />
+      </geometry>
+      <material name="mat_link_4">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_4.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_5">
+    <inertial>
+      <mass value="0.546" />
+      <inertia ixx="0.000404891" ixy="0.00000161943" ixz="0.000000846805" iyy="0.000892825" iyz="-0.0000000151792" izz="0.000815468" />
+      <origin xyz="-0.00109 0.0000368 0.0000622" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_5.stl" />
+      </geometry>
+      <material name="mat_link_5">
+        <color rgba="1.0 0.43 0.0 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_5.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link_6">
+    <inertial>
+      <mass value="0.137" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
+      <origin xyz="-0.00706 -0.00017 -0.00000132" rpy="0 0 0" />
+    </inertial>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/visual/link_6.stl" />
+      </geometry>
+      <material name="mat_link_6">
+        <color rgba="0.1 0.1 0.1 1.0" />
+      </material>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/irb120_3_58/collision/link_6.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="tool0_link">
+    <inertial>
+      <mass value="0.0001" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+  </link>
+
+  <link name="gripper_base_link">
+    <inertial>
+      <mass value="0.2" />
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001" />
+    </inertial>
+    <visual name="gripper_base_visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/base_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="mat_gripper_base_link">
+        <color rgba="0.7 0.7 0.7 1.0" />
+      </material>
+    </visual>
+    <collision name="gripper_base_collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/base_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gripper_right_attachment">
+    <inertial>
+      <mass value="0.05" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual name="right_visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/finger_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="mat_gripper_right_attachment">
+        <color rgba="0.7 0.7 0.7 1.0" />
+      </material>
+    </visual>
+    <collision name="right_collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/finger_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gripper_left_attachment">
+    <inertial>
+      <mass value="0.05" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual name="left_visual">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/finger_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="mat_gripper_left_attachment">
+        <color rgba="0.7 0.7 0.7 1.0" />
+      </material>
+    </visual>
+    <collision name="left_collision">
+      <geometry>
+        <mesh filename="package://project_description/meshes/2fg7/finger_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- =================================================================== -->
+  <!-- ENVIRONMENT OBJECTS & TASKBOARD LINKS (WITH INERTIAL TAGS)          -->
+  <!-- =================================================================== -->
+
+  <link name="taskboard_link">
+    <inertial>
+      <mass value="1.0" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Taskboard_Origin.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Taskboard_Origin.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="tray_link">
+    <inertial>
+      <mass value="0.5" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Tray.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Tray.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="m16_nut_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M16_Nut.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M16_Nut.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="m12_nut_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M12_Nut.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M12_Nut.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="m8_nut_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M8_Nut.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M8_Nut.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="m4_nut_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M4_Nut.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/M4_Nut.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="ket16_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET16.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET16.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="ket12_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET12.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET12.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="ket8_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET8.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET8.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="ket41_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET4.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/KET4.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gear_large_link">
+    <inertial>
+      <mass value="0.02" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Large.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Large.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gear_medium_link">
+    <inertial>
+      <mass value="0.02" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Medium.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Medium.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="gear_small_link">
+    <inertial>
+      <mass value="0.02" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Small.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/Gear_Small.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rcog16-50_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG16-50.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG16-50.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rcog12-50_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG12-50.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG12-50.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rcog8-50_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG8-50.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG8-50.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rcog4-50_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG4-50.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RGOCG4-50.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="usb_male_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/USB_Male.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/USB_Male.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="bnc_male_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/BNC_Male.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/BNC_Male.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="dsub_male_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/DSUB_Male.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/DSUB_Male.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rj45_male_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RJ45_Male.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/RJ45_Male.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="mcon-e10-sp_link">
+    <inertial>
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/MCON-E10-SP.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://project_description/meshes/taskboard_1/dae/MCON-E10-SP.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- =================================================================== -->
+  <!-- ROBOT JOINTS                                                        -->
+  <!-- =================================================================== -->
+
+  <joint name="joint_1" type="revolute">
+    <parent link="base_link" />
+    <child link="link_1" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.87979" upper="2.87979" effort="100" velocity="4.36332" />
+  </joint>
+
+  <joint name="joint_2" type="revolute">
+    <parent link="link_1" />
+    <child link="link_2" />
+    <origin xyz="0 0 0.29" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-1.91986" upper="1.91986" effort="100" velocity="4.36332" />
+  </joint>
+
+  <joint name="joint_3" type="revolute">
+    <parent link="link_2" />
+    <child link="link_3" />
+    <origin xyz="0 0 0.27" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-1.91986" upper="1.22173" effort="100" velocity="4.36332" />
+  </joint>
+
+  <joint name="joint_4" type="revolute">
+    <parent link="link_3" />
+    <child link="link_4" />
+    <origin xyz="0 0 0.07" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-2.79253" upper="2.79253" effort="100" velocity="7.33038" />
+  </joint>
+
+  <joint name="joint_5" type="revolute">
+    <parent link="link_4" />
+    <child link="link_5" />
+    <origin xyz="0.302 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-2.094395" upper="2.094395" effort="100" velocity="10.29744" />
+  </joint>
+
+  <joint name="joint_6" type="revolute">
+    <parent link="link_5" />
+    <child link="link_6" />
+    <origin xyz="0.072 0 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-6.98132" upper="6.98132" effort="100" velocity="10.471975" />
+  </joint>
+
+  <joint name="tool0_joint" type="fixed">
+    <parent link="link_6" />
+    <child link="tool0_link" />
+    <origin xyz="0 0 0" rpy="0 1.570796 0" />
+  </joint>
+
+  <joint name="gripper_base_joint" type="fixed">
+    <parent link="tool0_link" />
+    <child link="gripper_base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="gripper_right_joint" type="fixed">
+    <parent link="gripper_base_link" />
+    <child link="gripper_right_attachment" />
+    <origin xyz="0 0 0.115" rpy="0 0 0" />
+  </joint>
+
+  <joint name="gripper_left_joint" type="fixed">
+    <parent link="gripper_base_link" />
+    <child link="gripper_left_attachment" />
+    <origin xyz="0 0 0.115" rpy="0 0 0" />
+  </joint>
+
+  <!-- =================================================================== -->
+  <!-- ENVIRONMENT JOINTS (FIXED TO BASE_LINK)                             -->
+  <!-- =================================================================== -->
+
+  <joint name="taskboard_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="taskboard_link" />
+    <origin xyz="-0.2 -0.315 -0.0045" rpy="0 0 0" />
+  </joint>
+
+  <joint name="tray_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="tray_link" />
+    <origin xyz="0.2 -0.32 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="m16_nut_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="m16_nut_link" />
+    <origin xyz="0.235 -0.432 0.012" rpy="-0.000407 1.57059 -0.000407" />
+  </joint>
+
+  <joint name="m12_nut_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="m12_nut_link" />
+    <origin xyz="0.341 -0.332 0.004" rpy="0 0 0" />
+  </joint>
+
+  <joint name="m8_nut_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="m8_nut_link" />
+    <origin xyz="0.204 -0.251 0.003" rpy="0 0 0" />
+  </joint>
+
+  <joint name="m4_nut_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="m4_nut_link" />
+    <origin xyz="0.052 -0.198 0.002" rpy="0 0 0" />
+  </joint>
+
+  <joint name="ket16_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="ket16_link" />
+    <origin xyz="0.107 -0.171 0.025" rpy="0 0 0" />
+  </joint>
+
+  <joint name="ket12_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="ket12_link" />
+    <origin xyz="0.059 -0.372 0.004" rpy="1.571 0 0" />
+  </joint>
+
+  <joint name="ket8_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="ket8_link" />
+    <origin xyz="0.137 -0.413 0.004" rpy="0.000407 -1.57059 -0.000407" />
+  </joint>
+
+  <joint name="ket4_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="ket41_link" />
+    <origin xyz="0.347 -0.449 0.002" rpy="1.571 0 0" />
+  </joint>
+
+  <joint name="gear_large_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="gear_large_link" />
+    <origin xyz="0.078 -0.278 0.01" rpy="3.14118 0 -3.14118" />
+  </joint>
+
+  <joint name="gear_medium_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="gear_medium_link" />
+    <origin xyz="0.271 -0.314 0.01" rpy="3.14118 0 3.14118" />
+  </joint>
+
+  <joint name="gear_small_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="gear_small_link" />
+    <origin xyz="0.343 -0.259 0.01" rpy="-3.14118 0 -3.14118" />
+  </joint>
+
+  <joint name="rcog16_50_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="rcog16-50_link" />
+    <origin xyz="0.276 -0.249 0.024" rpy="0 0 0" />
+  </joint>
+
+  <joint name="rcog12_50_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="rcog12-50_link" />
+    <origin xyz="0.194 -0.382 0.025" rpy="0 0 0" />
+  </joint>
+
+  <joint name="rcog8_50_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="rcog8-50_link" />
+    <origin xyz="0.065 -0.466 0.025" rpy="0 0 0" />
+  </joint>
+
+  <joint name="rcog4_50_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="rcog4-50_link" />
+    <origin xyz="0.196 -0.175 0.002" rpy="-0.01159 -1.57059 0.01159" />
+  </joint>
+
+  <joint name="usb_male_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="usb_male_link" />
+    <origin xyz="0.294 -0.462 0.004" rpy="-1.571 0 -3.14118" />
+  </joint>
+
+  <joint name="bnc_male_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="bnc_male_link" />
+    <origin xyz="0.133 -0.214 0.011" rpy="3.14118 0 0" />
+  </joint>
+
+  <joint name="dsub_male_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="dsub_male_link" />
+    <origin xyz="0.166 -0.325 0.008" rpy="-1.571 0 0" />
+  </joint>
+
+  <joint name="rj45_male_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="rj45_male_link" />
+    <origin xyz="0.137 -0.479 0.00688" rpy="0 0 0" />
+  </joint>
+
+  <joint name="mcon_e10_sp_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="mcon-e10-sp_link" />
+    <origin xyz="0.30978 -0.17922 0.01978" rpy="0 0 0" />
+  </joint>
+
+</robot>
