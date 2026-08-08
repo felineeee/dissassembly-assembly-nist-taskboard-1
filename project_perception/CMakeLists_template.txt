@@ -1,0 +1,100 @@
+cmake_minimum_required(VERSION 3.8)
+project(irb1200_perception)
+
+# 1. Compiler Settings & Clangd Support
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic -std=c++17)
+endif()
+
+# Generates compile_commands.json in the build folder for clangd
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# 2. Dependencies Setup
+find_package(ament_cmake REQUIRED)
+
+set(COMMON_DEPS
+  rclcpp
+  pcl_conversions
+  pcl_ros
+  sensor_msgs
+  shape_msgs
+  mycobot_interfaces
+  tf2_ros
+  tf2_eigen
+  tf2_geometry_msgs
+  moveit_msgs
+)
+
+set(MOVEIT_DEPS
+  moveit_core
+  moveit_ros_planning
+  moveit_ros_planning_interface
+  moveit_task_constructor_core
+  moveit_task_constructor_msgs
+)
+
+# Find all ROS 2 / MoveIt packages
+foreach(package ${COMMON_DEPS} ${MOVEIT_DEPS})
+  find_package(${package} REQUIRED)
+endforeach()
+
+# Find PCL
+find_package(PCL REQUIRED COMPONENTS common features filters io kdtree search segmentation)
+
+# 3. Global Definitions
+add_definitions(${PCL_DEFINITIONS})
+add_definitions(-DPCL_NO_PRECOMPILE)
+
+# -----------------------------------------------------------------------------
+# 4. Shared Library (Uncomment when you add .cpp files to src/)
+# -----------------------------------------------------------------------------
+# add_library(${PROJECT_NAME}_lib SHARED
+#   src/cluster_extraction.cpp
+# )
+
+# target_include_directories(${PROJECT_NAME}_lib PUBLIC
+#   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#   $<INSTALL_INTERFACE:include>
+#   ${PCL_INCLUDE_DIRS}
+# )
+
+# target_link_libraries(${PROJECT_NAME}_lib ${PCL_LIBRARIES})
+# ament_target_dependencies(${PROJECT_NAME}_lib ${COMMON_DEPS})
+
+# -----------------------------------------------------------------------------
+# 5. Executables
+# -----------------------------------------------------------------------------
+add_executable(perception_server src/perception_server.cpp)
+
+# IF USING THE LIB: 
+# target_link_libraries(perception_server ${PROJECT_NAME}_lib)
+# ament_target_dependencies(perception_server ${MOVEIT_DEPS})
+
+# IF LIB IS STILL EMPTY (CURRENT STATE):
+target_include_directories(perception_server PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  ${PCL_INCLUDE_DIRS}
+)
+target_link_libraries(perception_server ${PCL_LIBRARIES})
+ament_target_dependencies(perception_server ${COMMON_DEPS} ${MOVEIT_DEPS})
+
+# -----------------------------------------------------------------------------
+# 6. Install & Packaging
+# -----------------------------------------------------------------------------
+
+# Install executables (and library if it exists)
+install(TARGETS perception_server # Add ${PROJECT_NAME}_lib here later
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# Install headers
+install(DIRECTORY include/ DESTINATION include)
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  set(ament_cmake_copyright_FOUND TRUE)
+  set(ament_cmake_cpplint_FOUND TRUE)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+ament_package()

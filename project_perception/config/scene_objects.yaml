@@ -1,0 +1,13 @@
+# List of collision objects to load into the planning scene
+collision_objects:
+  - id: 'example_part'
+    mesh_source: 'package://irb1200_perception/meshes/example_part.stl'
+    frame_id: 'base_link'
+    position: [0.5, 0.0, 0.2]
+    orientation_rpy: [0.0, 0.0, 1.57]
+
+  - id: 'table_obstacle'
+    mesh_source: '/absolute/path/to/table.stl'
+    frame_id: 'world'
+    position: [1.0, 0.5, 0.0]
+    orientation_rpy: [0.0, 0.0, 0.0]

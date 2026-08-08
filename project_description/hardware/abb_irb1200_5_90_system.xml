@@ -1,0 +1,9 @@
+<library path="abb_irb1200_5_90_system">
+  <class name="abb_irb1200_5_90_system/AbbIrb1200Hardware" 
+         type="abb_irb1200_support::AbbIrb1200Hardware" 
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Hardware interface for ABB IRB 1200 5-90.
+    </description>
+  </class>
+</library>

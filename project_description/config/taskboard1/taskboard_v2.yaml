@@ -1,0 +1,117 @@
+# Complete scene configuration mapped from SDF world coordinates
+objects:
+  - id: 'taskboard'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/Taskboard_Origin.dae'
+    frame_id: 'world'
+    pose: [-0.200, 0.005, -0.0045, 0.0, 0.0, 0.0]
+
+  - id: 'tray'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/Tray.dae'
+    frame_id: 'world'
+    pose: [0.200, 0.000, 0.0, 0.0, 0.0, 0.0]
+
+  # --- Nuts ---
+  - id: 'm16_nut'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/M16_Nut.dae'
+    frame_id: 'world'
+    pose: [0.235, -0.112, 0.012, -3.142, 1.571, -3.142]
+
+  - id: 'm12_nut'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/M12_Nut.dae'
+    frame_id: 'world'
+    pose: [0.341, -0.012, 0.004, 0.0, 0.0, 0.0]
+
+  - id: 'm8_nut'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/M8_Nut.dae'
+    frame_id: 'world'
+    pose: [0.204, 0.069, 0.003, 0.0, 0.0, 0.0]
+
+  - id: 'm4_nut'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/M4_Nut.dae'
+    frame_id: 'world'
+    pose: [0.052, 0.122, 0.002, 0.0, 0.0, 0.0]
+
+  # --- KET Components ---
+  - id: 'ket16'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/KET16.dae'
+    frame_id: 'world'
+    pose: [0.107, 0.149, 0.025, 0.0, 0.0, 0.0]
+
+  - id: 'ket12'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/KET12.dae'
+    frame_id: 'world'
+    pose: [0.059, -0.052, 0.004, 1.571, 0.0, 0.0]
+
+  - id: 'ket8'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/KET8.dae'
+    frame_id: 'world'
+    pose: [0.137, -0.093, 0.004, 3.142, -1.571, -3.142]
+
+  - id: 'ket4'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/KET4.dae'
+    frame_id: 'world'
+    pose: [0.347, -0.129, 0.002, 1.571, 0.0, 0.0]
+
+  # --- Gears ---
+  - id: 'gear_large'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/Gear_Large.dae'
+    frame_id: 'world'
+    pose: [0.078, 0.042, 0.01, -3.142, 0.0, 3.142]
+
+  - id: 'gear_medium'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/Gear_Medium.dae'
+    frame_id: 'world'
+    pose: [0.271, 0.006, 0.01, -3.142, 0.0, -3.142]
+
+  - id: 'gear_small'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/Gear_Small.dae'
+    frame_id: 'world'
+    pose: [0.343, 0.061, 0.01, 3.142, 0.0, 3.142]
+
+  # --- RCOG Components ---
+  - id: 'rgocg16_50'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/RGOCG16-50.dae'
+    frame_id: 'world'
+    pose: [0.276, 0.071, 0.024, 0.0, 0.0, 0.0]
+
+  - id: 'rgocg12_50'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/RGOCG12-50.dae'
+    frame_id: 'world'
+    pose: [0.194, -0.062, 0.025, 0.0, 0.0, 0.0]
+
+  - id: 'rgocg8_50'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/RGOCG8-50.dae'
+    frame_id: 'world'
+    pose: [0.065, -0.146, 0.025, 0.0, 0.0, 0.0]
+
+  - id: 'rgocg4_50'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/RGOCG4-50.dae'
+    frame_id: 'world'
+    pose: [0.196, 0.145, 0.002, 3.130, -1.571, -3.130]
+
+  # --- Connectors ---
+  - id: 'usb_male'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/USB_Male.dae'
+    frame_id: 'world'
+    pose: [0.294, -0.142, 0.004, -1.571, 0.0, 3.142]
+
+  - id: 'bnc_male'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/BNC_Male.dae'
+    frame_id: 'world'
+    pose: [0.133, 0.106, 0.011, -3.142, 0.0, 0.0]
+
+  - id: 'dsub_male'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/DSUB_Male.dae'
+    frame_id: 'world'
+    pose: [0.166, -0.005, 0.008, -1.571, 0.0, 0.0]
+
+  # Shift this about 0.2 on x axis
+  - id: 'rj45_male'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/RJ45_Male.dae'
+    frame_id: 'world'
+    pose: [0.137, -0.15906, 0.00688, 0, 0, 0]
+
+  - id: 'MCON-E10-SP'
+    mesh_path: 'project_description://meshes/taskboard_1/dae/MCON-E10-SP.dae'
+    frame_id: 'world'
+    pose: [0.30978, 0.14078, 0.01978, 0, 0, 0]

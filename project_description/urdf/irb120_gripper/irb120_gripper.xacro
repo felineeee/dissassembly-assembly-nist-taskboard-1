@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="irb120_assembly">
+
+  <xacro:include filename="$(find project_description)/urdf/irb120_3_58/irb120_3_58_macro.xacro"/>
+  
+  <xacro:include filename="$(find project_description)/urdf/2fg7/onrobot_2fg7.xacro"/>
+
+  <link name="world" />
+  <joint name="world_to_robot" type="fixed">
+    <parent link="world" />
+    <child link="base_link" />
+    <origin xyz="0 0.32 0" rpy="0 0 0" />
+  </joint>
+
+  <xacro:abb_irb120_3_58 prefix=""/>
+
+  <xacro:onrobot_2fg7 prefix="gripper_" parent="tool0">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:onrobot_2fg7>
+
+  <xacro:onrobot_2fg7_fingertip prefix="right_" parent="gripper_right_attachment" side="right">
+    <origin xyz="0 0 0" rpy="0 0 3.14159265359"/>
+  </xacro:onrobot_2fg7_fingertip>
+
+  <xacro:onrobot_2fg7_fingertip prefix="left_" parent="gripper_left_attachment" side="left">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:onrobot_2fg7_fingertip>
+
+</robot>

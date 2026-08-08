@@ -1,0 +1,856 @@
+<sdf version='1.11'>
+<world name="abb_irb1200_5_90">
+  <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+  </physics>
+  <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+  </plugin>
+  <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+  </plugin>
+  <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+  </plugin>
+  <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+  <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+          <range>1000</range>
+          <constant>0.9</constant>
+          <linear>0.01</linear>
+          <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+  </light>
+  
+  <model name='abb_irb1200_5_90'>
+    <joint name='world_fixed' type='fixed'>
+      <pose relative_to='__model__'>0 0 0 0 0 0</pose>
+      <parent>world</parent>
+      <child>base_link</child>
+    </joint>
+    <link name='base_link'>
+      <pose relative_to='world_fixed'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.028986000000000001 0.00059599999999999996 0.11273 0 0 0</pose>
+        <mass>13.7742</mass>
+        <inertia>
+          <ixx>0.10199800000000001</ixx>
+          <ixy>0.000495482</ixy>
+          <ixz>0.00031115800000000002</ixz>
+          <iyy>0.13969000000000001</iyy>
+          <iyz>-0.00024537499999999999</iyz>
+          <izz>0.13043299999999999</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_fixed_joint_lump__collision_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/collision/base_link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_fixed_joint_lump__visual_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/visual/base_link.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_1' type='revolute'>
+      <pose relative_to='base_link'>0 0 0.39910000000000001 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>link_1</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-2.9670000000000001</lower>
+          <upper>2.9670000000000001</upper>
+          <effort>1000</effort>
+          <velocity>5.0270000000000001</velocity>
+        </limit>
+        <dynamics>
+          <damping>50</damping>
+          <friction>1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_1'>
+      <pose relative_to='joint_1'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.00087699999999999996 -0.00063100000000000005 -0.062882999999999994 0 0 0</pose>
+        <mass>11.841900000000001</mass>
+        <inertia>
+          <ixx>0.11194</ixx>
+          <ixy>-4.5498799999999999e-05</ixy>
+          <ixz>0.00028096099999999998</ixz>
+          <iyy>0.091515899999999997</iyy>
+          <iyz>-0.000109905</iyz>
+          <izz>0.087645600000000004</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_1_fixed_joint_lump__collision_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/collision/link_1.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_1_fixed_joint_lump__visual_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/visual/link_1.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_2' type='revolute'>
+      <pose relative_to='link_1'>0 0 0 0 0 0</pose>
+      <parent>link_1</parent>
+      <child>link_2</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.7450000000000001</lower>
+          <upper>2.2690000000000001</upper>
+          <effort>1000</effort>
+          <velocity>4.1890000000000001</velocity>
+        </limit>
+        <dynamics>
+          <damping>50</damping>
+          <friction>1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_2'>
+      <pose relative_to='joint_2'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.00092800000000000001 -0.00049700000000000005 0.25005100000000002 0 0 0</pose>
+        <mass>17.539400000000001</mass>
+        <inertia>
+          <ixx>0.493558</ixx>
+          <ixy>1.32136e-05</ixy>
+          <ixz>0.00020902400000000001</ixz>
+          <iyy>0.46293899999999999</iyy>
+          <iyz>-0.00179901</iyz>
+          <izz>0.089421399999999998</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_2_fixed_joint_lump__collision_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/collision/link_2.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_2_fixed_joint_lump__visual_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/visual/link_2.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_3' type='revolute'>
+      <pose relative_to='link_2'>0 0 0.44800000000000001 0 0 0</pose>
+      <parent>link_2</parent>
+      <child>link_3</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.4910000000000001</lower>
+          <upper>1.222</upper>
+          <effort>1000</effort>
+          <velocity>5.2359999999999998</velocity>
+        </limit>
+        <dynamics>
+          <damping>10</damping>
+          <friction>1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_3'>
+      <pose relative_to='joint_3'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.099587999999999996 0.0011429999999999999 0.032333000000000001 0 0 0</pose>
+        <mass>7.4636500000000003</mass>
+        <inertia>
+          <ixx>0.025242400000000002</ixx>
+          <ixy>0.00014273700000000001</ixy>
+          <ixz>-0.0056554200000000004</ixz>
+          <iyy>0.090643799999999997</iyy>
+          <iyz>0.000142213</iyz>
+          <izz>0.082507899999999995</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_3_fixed_joint_lump__collision_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/collision/link_3.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_3_fixed_joint_lump__visual_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/visual/link_3.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_4' type='revolute'>
+      <pose relative_to='link_3'>0 0 0.042000000000000003 0 0 0</pose>
+      <parent>link_3</parent>
+      <child>link_4</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-4.7119999999999997</lower>
+          <upper>4.7119999999999997</upper>
+          <effort>1000</effort>
+          <velocity>6.9809999999999999</velocity>
+        </limit>
+        <dynamics>
+          <damping>5</damping>
+          <friction>1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_4'>
+      <pose relative_to='joint_4'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.38167800000000002 0.001261 0.0051679999999999999 0 0 0</pose>
+        <mass>2.7443599999999999</mass>
+        <inertia>
+          <ixx>0.00573099</ixx>
+          <ixy>-0.00013111899999999999</ixy>
+          <ixz>0.00038023199999999999</ixz>
+          <iyy>0.011835200000000001</iyy>
+          <iyz>-2.2656499999999999e-05</iyz>
+          <izz>0.011442799999999999</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_4_fixed_joint_lump__collision_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/collision/link_4.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_4_fixed_joint_lump__visual_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/visual/link_4.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_5' type='revolute'>
+      <pose relative_to='link_4'>0.45100000000000001 0 0 0 0 0</pose>
+      <parent>link_4</parent>
+      <child>link_5</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-2.2690000000000001</lower>
+          <upper>2.2690000000000001</upper>
+          <effort>1000</effort>
+          <velocity>7.069</velocity>
+        </limit>
+        <dynamics>
+          <damping>2</damping>
+          <friction>1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_5'>
+      <pose relative_to='joint_5'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.011197 -0.0010560000000000001 0.00010900000000000001 0 0 0</pose>
+        <mass>0.62953000000000003</mass>
+        <inertia>
+          <ixx>0.00050281499999999999</ixx>
+          <ixy>-1.03173e-05</ixy>
+          <ixz>-8.7434699999999999e-08</ixz>
+          <iyy>0.0010885599999999999</iyy>
+          <iyz>2.0765699999999999e-07</iyz>
+          <izz>0.00091887299999999996</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_5_fixed_joint_lump__collision_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/collision/link_5.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_5_fixed_joint_lump__visual_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/visual/link_5.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='joint_6' type='revolute'>
+      <pose relative_to='link_5'>0.082000000000000003 0 0 0 0 0</pose>
+      <parent>link_5</parent>
+      <child>link_6</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-6.2830000000000004</lower>
+          <upper>6.2830000000000004</upper>
+          <effort>1000</effort>
+          <velocity>10.472</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link_6'>
+      <pose relative_to='joint_6'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.0070600000000000003 -0.00017000000000000001 -1.3200000000000001e-06 0 0 0</pose>
+        <mass>0.13700000000000001</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name='link_6_fixed_joint_lump__collision_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/collision/link_6.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='link_6_fixed_joint_lump__visual_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://project_description/meshes/irb1200_5_90/visual/link_6.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+        </material>
+      </visual>
+      <sensor name="rgbd_camera" type="rgbd_camera">
+        <pose>0 0 0 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+        <topic>rgbd_camera</topic>
+        <gz_frame_id>link_6</gz_frame_id>
+        <camera>
+          <horizontal_fov>1.047</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>10</far>
+          </clip>
+          <optical_frame_id>link_6_optical</optical_frame_id>
+        </camera>
+      </sensor>
+    </link>
+    <frame name='base_link-base' attached_to='base_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='base' attached_to='base_link-base'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='link_6-tool0' attached_to='flange'>
+      <pose>0 0 0 0 1.5707963267948966 0</pose>
+    </frame>
+    <frame name='tool0' attached_to='link_6-tool0'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='joint_6-flange' attached_to='link_6'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='flange' attached_to='joint_6-flange'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+  </model>
+  <!-- Debug Box -->
+  <model name='target_box'>
+    <static>true</static>
+    <pose>0.7 0 0.5 0 0 0</pose>
+    <link name='box_link'>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>0.2 0.2 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>0.2 0.2 0.2</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 1 0 1</diffuse>
+          <ambient>0 1 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+  </model>
+  <!-- Taskboard -->
+  <model name="Taskboard">
+    <static>true</static>
+    <pose>-0.200 0.005 0.0045 0 0 0</pose>
+    <link name="taskboard_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/Taskboard_Origin.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/Taskboard_Origin.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <!-- Tray -->
+  <model name="Tray">
+    <static>true</static>
+    <pose>0.200 0.000 0.000 0 0 0</pose>
+    <link name="tray_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/Tray.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/Tray.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+  <!-- Nut -->
+  <model name="m16_nut">
+    <static>true</static>
+    <pose>0.235 -0.112 0.012  -3.142 1.571 -3.142</pose>
+    <link name="m16_nut_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/M16_Nut.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/M16_Nut.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="m12_nut">
+    <static>true</static>
+    <pose>0.341 -0.012 0.004   0.000 0.000 0.000</pose>
+    <link name="m12_nut_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/M12_Nut.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/M12_Nut.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="m8_nut">
+    <static>true</static>
+    <pose>0.204 0.069 0.003   0.000 0.000 0.000</pose>
+    <link name="m8_nut_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/M8_Nut.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/M8_Nut.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="m4_nut">
+    <static>true</static>
+    <pose>0.052 0.122 0.002   0.000 0.000 0.000</pose>
+    <link name="m4_nut_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/M4_Nut.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/M4_Nut.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <!-- KET -->
+  <model name="ket16">
+    <static>true</static>
+    <pose>0.107 0.149 0.025   0.000 0.000 0.000</pose>
+    <link name="ket16_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/KET16.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/KET16.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="ket12">
+    <static>true</static>
+    <pose>0.059 -0.052 0.004   1.571 0.000 0.000</pose>
+    <link name="ket12_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/KET12.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/KET12.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="ket8">
+    <static>true</static>
+    <pose>0.137 -0.093 0.004   3.142 -1.571 -3.142</pose>
+    <link name="ket8_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/KET8.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/KET8.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="ket4">
+    <static>true</static>
+    <pose>0.347 -0.129 0.002   1.571 0.000 0.000</pose>
+    <link name="ket41_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/KET4.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/KET4.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <!-- Gear -->
+   <model name="gear_large">
+    <static>true</static>
+    <pose>0.078 0.042 -0.001  -3.142 0.000 3.142</pose>
+    <link name="gear_large_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/Gear_Large.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/Gear_Large.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="gear_medium">
+    <static>true</static>
+    <pose>0.271 0.006 -0.001  -3.142 0.000 -3.142</pose>
+    <link name="gear_medium_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/Gear_Medium.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/Gear_Medium.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="gear_small">
+    <static>true</static>
+    <pose>0.343 0.061 -0.001   3.142 0.000 3.142</pose>
+    <link name="gear_small_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/Gear_Small.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/Gear_Small.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <!-- RCOG -->
+   <model name="RGOCG16-50">
+    <static>true</static>
+    <pose>0.276 0.071 0.024   0.000 0.000 0.000</pose> 
+    <link name="rcog16-50_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/RGOCG16-50.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/RGOCG16-50.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="RGOCG12-50">
+    <static>true</static>
+    <pose>0.194 -0.062 0.025  0.000 0.000 0.000</pose>
+    <link name="rcog12-50_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/RGOCG12-50.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/RGOCG12-50.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="RGOCG8-50">
+    <static>true</static>
+    <pose>0.065 -0.146 0.025  0.000 0.000 0.000</pose>
+    <link name="rcog8-50_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/RGOCG8-50.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/RGOCG8-50.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="RGOCG4-50">
+    <static>true</static>
+    <pose>0.196 0.145 0.002   3.130 -1.571 -3.130</pose>
+    <link name="rcog4-50_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/RGOCG4-50.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/RGOCG4-50.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <!-- Other -->
+  <model name="USB_Male">
+    <static>true</static>
+    <pose>0.294 -0.142 0.004  -1.571 0.000 3.142</pose>
+    <link name="usb_male_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/USB_Male.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/USB_Male.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="BNC_Male">
+    <static>true</static>
+    <pose>0.133 0.106 0.011   1.571 0.000 0.000</pose>
+    <link name="bnc_male_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/BNC_Male.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/BNC_Male.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="DSUB_Male">
+    <static>true</static>
+    <pose>0.166 -0.005 0.008  -1.571 0.000 0.000</pose>
+    <link name="dsub_male_link">
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/DSUB_Male.dae</uri></mesh>
+        </geometry>
+      </collision>
+      
+      <visual name="visual">
+        <geometry>
+          <mesh><uri>model://project_description/meshes/taskboard_1/dae/DSUB_Male.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  </world>
+</sdf>

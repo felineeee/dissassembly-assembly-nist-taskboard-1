@@ -1,0 +1,53 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: True
+    position_control:
+      type: forward_command_controller/ForwardCommandController
+    velocity_control:
+      type: forward_command_controller/ForwardCommandController
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    sine_controller:
+      type: position_controllers/SineWaveController
+
+position_control:
+  ros__parameters:
+    use_sim_time: True
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+    interface_name: position 
+    state_interfaces:
+      - position
+      - velocity
+
+velocity_control:
+  ros__parameters:
+    use_sim_time: True
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+    interface_name: velocity
+    state_interfaces:
+      - position
+      - velocity
+sine_controller:
+  ros__parameters:
+    use_sim_time: True
+    update_rate: 100
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6

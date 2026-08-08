@@ -1,0 +1,10 @@
+{
+  "clangd.path": "/home/kafi/.local/bin/ros-clangd-wrapper",
+  "clangd.arguments": [
+    "--path-mappings=/opt/ros/jazzy=/home/kafi/.local/share/distrobox/containers/ubuntu/opt/ros/jazzy",
+    "--path-mappings=/usr/include=/home/kafi/.local/share/distrobox/containers/ubuntu/usr/include",
+    "--query-driver=/usr/bin/g++,/usr/bin/c++,/usr/bin/clang++"
+  ],
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "cmake.sourceDirectory": "/home/kafi/ubuntu/ws_moveit/src/project_template/project_moveit"
+}

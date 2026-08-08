@@ -1,0 +1,87 @@
+# taskboard_scene.yaml (X/Y Swapped with Mirror Correction)
+
+objects:
+  - id: 'taskboard'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/taskboard.stl'
+    frame_id: 'base_link'
+    pose: [0.0, 0.0, -0.0045, 0.0, 0.0, -1.5708]
+
+  - id: 'worktray'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/blank_tray.stl'
+    frame_id: 'base_link'
+    pose: [0.0, 0.0, 0.0, 0.0, 0.0, -1.5708]
+
+  - id: 'usb_male'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/USB_Male.stl'
+    frame_id: 'base_link'
+    pose: [-0.1418, -0.0936, 0.0040, -1.5708, 0.0000, 3.1416]
+
+  - id: 'bnc_male'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/BNC_Male.stl'
+    frame_id: 'base_link'
+    pose: [0.1056, 0.0668, 0.0110, 1.5708, 0.0000, 0.0000]
+
+  - id: 'dsub_male'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/DSUB_Male.stl'
+    frame_id: 'base_link'
+    pose: [-0.0049, 0.0340, 0.0079, -1.5708, 0.0000, 0.0000]
+
+  - id: 'gear_large'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/Gear_Large.stl'
+    frame_id: 'base_link'
+    pose: [0.0423, 0.1217, -0.0007, -3.1416, 0.0000, 3.1416]
+
+  - id: 'gear_medium'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/Gear_Medium.stl'
+    frame_id: 'base_link'
+    pose: [0.0056, -0.0706, -0.0014, -3.1416, 0.0000, -3.1416]
+
+  - id: 'gear_small'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/Gear_Small.stl'
+    frame_id: 'base_link'
+    pose: [0.0609, -0.1429, -0.0011, 3.1416, 0.0000, 3.1416]
+
+  - id: 'ket16_square'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/KET16_Square_16mm.stl'
+    frame_id: 'base_link'
+    pose: [0.1486, 0.0934, 0.0246, 0.0000, 0.0000, 0.0000]
+
+  - id: 'ket4_square'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/KET4_Square_4mm.stl'
+    frame_id: 'base_link'
+    pose: [-0.1291, -0.1469, 0.0019, 1.5708, 0.0000, 0.0000]
+
+  - id: 'ket8_square'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/KET8_Square_8mm.stl'
+    frame_id: 'base_link'
+    pose: [-0.0932, 0.0632, 0.0038, 3.1416, -1.5708, -3.1416]
+
+  - id: 'm16_nut'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/M16_Hex_Nut.stl'
+    frame_id: 'base_link'
+    pose: [-0.1117, -0.0353, 0.0123, -3.1416, 1.5708, -3.1416]
+
+  - id: 'm4_nut'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/M4_Hex_Nut.stl'
+    frame_id: 'base_link'
+    pose: [0.1216, 0.1484, 0.0016, 0.0000, 0.0000, 0.0000]
+
+  - id: 'm8_nut'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/M8_Hex_Nut.stl'
+    frame_id: 'base_link'
+    pose: [0.0692, -0.0042, 0.0032, 0.0000, 0.0000, 0.0000]
+
+  - id: 'rgocg4_50'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/RGOCG4-50_Round_4mm.stl'
+    frame_id: 'base_link'
+    pose: [0.1448, 0.0042, 0.0018, 3.1302, -1.5708, -3.1302]
+
+  - id: 'rj45_male'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/RJ45_Male.stl'
+    frame_id: 'base_link'
+    pose: [-0.1487, 0.1700, 0.0, 1.5708, 0.0000, 0.0000]
+
+  - id: 'ket12_square'
+    mesh_path: 'project_description://meshes/taskboard_1/collision/KET12_Square_12mm.stl'
+    frame_id: 'base_link'
+    pose: [-0.0520, 0.1410, 0.0040, 1.5708, 0.0000, 0.0000]
