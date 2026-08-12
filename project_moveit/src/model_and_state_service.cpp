@@ -32,7 +32,7 @@ public:
     robot_state_->setToDefaultValues();
 
     arm_jmg_ = kinematic_model_->getJointModelGroup("irb120_arm");
-    gripper_jmg_ = kinematic_model_->getJointModelGroup("irb12_gripper");
+    gripper_jmg_ = kinematic_model_->getJointModelGroup("onrobot_2fg7");
 
     joint_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states", 10);
     tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);

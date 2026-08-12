@@ -292,20 +292,21 @@
     <origin xyz="0 0 0" rpy="0 0 0" />
   </joint>
 
-  <!-- FIXED: Actuated Prismatic Joint created matching SRDF joint "gripper_gripper_joint" -->
-  <joint name="gripper_gripper_joint" type="prismatic">
+<joint name="gripper_gripper_joint" type="prismatic">
     <parent link="gripper_base_link" />
     <child link="left_onrobot_2fg7_finger_link" />
     <origin xyz="-0.02 0 0.115" rpy="0 0 0" />
     <axis xyz="1 0 0" />
-    <limit lower="0.0" upper="0.038" effort="100" velocity="0.1" />
+    <limit lower="0.0" upper="0.009" effort="100" velocity="0.1" />
   </joint>
 
-  <!-- FIXED: Child updated to right_onrobot_2fg7_finger_link -->
-  <joint name="gripper_right_joint" type="fixed">
+  <joint name="gripper_right_joint" type="prismatic">
     <parent link="gripper_base_link" />
     <child link="right_onrobot_2fg7_finger_link" />
     <origin xyz="0.02 0 0.115" rpy="0 0 3.14159" />
+    <axis xyz="1 0 0" />
+    <limit lower="0.0" upper="0.009" effort="100" velocity="0.1" />
+    <mimic joint="gripper_gripper_joint" multiplier="1.0" />
   </joint>
 
 </robot>

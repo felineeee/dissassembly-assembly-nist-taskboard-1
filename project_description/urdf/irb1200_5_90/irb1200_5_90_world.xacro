@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="irb1200_assembly">
+
+  <!-- 1. Include Robot -->
+  <xacro:include filename="$(find project_description)/urdf/irb1200_5_90/irb1200_5_90.urdf" />
+
+  <!-- 2. Include Gripper Macro -->
+  <xacro:include filename="$(find project_description)/urdf/2f_gripper/robotiq_2f_85_macro.urdf.xacro" />
+
+  <!-- 3. Connect Robot to World -->
+  <link name="world"/>
+  <joint name="world_to_robot" type="fixed">
+    <parent link="world" />
+    <child link="base_link" />
+    <origin xyz="0 0.32 0" rpy="0 0 0" />
+  </joint>
+
+  <!-- 4. Instantiate Gripper and Attach to Robot's tool0 -->
+  <xacro:robotiq_gripper name="RobotiqGripper" prefix="" parent="tool0" use_fake_hardware="true" include_ros2_control="true">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:robotiq_gripper>
+
+  <!-- 5. Define Tool Center Point (TCP) ~160mm from the gripper base -->
+  <link name="robotiq_tcp" />
+  <joint name="robotiq_tcp_joint" type="fixed">
+    <parent link="robotiq_85_base_link" />
+    <child link="robotiq_tcp" />
+    <origin xyz="0 0 0.16" rpy="0 0 0" />
+  </joint>
+
+</robot>

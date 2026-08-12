@@ -1,4 +1,5 @@
 #include "project_perception/scene_loader.hpp"
+#include "project_perception/scene_loader_nist_taskboard_1.hpp"
 
 SceneLoader::SceneLoader(const rclcpp::NodeOptions& options) : Node("irb1200_scene_loader", options)
 {
@@ -227,7 +228,29 @@ void SceneLoader::spawnScene(const std::shared_ptr<project_interfaces::srv::Scen
 int main(int argc, char** argv)
 {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<SceneLoader>());
+
+  // Node options allow automatically declaring parameters
+  rclcpp::NodeOptions node_options;
+  node_options.automatically_declare_parameters_from_overrides(true);
+
+  auto node = std::make_shared<SceneLoaderApi>(node_options);
+
+  // 1. Initialize Visual Tools after constructor (so shared_from_this() is valid)
+  node->initVisualTools();
+
+  // 2. Resolve the path to your URDF file automatically using ament_index_cpp
+  std::string package_share = ament_index_cpp::get_package_share_directory("project_description");
+  std::string urdf_path = package_share + "/urdf/irb120_3_58/irb120_3_58_taskboard.urdf";
+
+  RCLCPP_INFO(node->get_logger(), "Loading environment from: %s", urdf_path.c_str());
+
+  // 3. Run the URDF loader in a worker thread so rclcpp::spin keeps servicing ROS callbacks
+  std::thread worker([node, urdf_path]() { node->loadAssemblyEnvironmentFromUrdf(urdf_path); });
+
+  // 4. Spin the main ROS 2 executor
+  rclcpp::spin(node);
+
+  rclcpp::spin(node);
   rclcpp::shutdown();
   return 0;
 }

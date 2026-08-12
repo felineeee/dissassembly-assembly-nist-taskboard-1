@@ -4,10 +4,10 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Global Options1
+        - /PlanningScene1
         - /PlanningScene1/Scene Robot1
-        - /PointCloud2 - Wrist1/Status1
-        - /PointCloud2 - Overhead1/Status1
-        - /DepthCloud - Overhead1/Auto Size1
+        - /MotionPlanning1
       Splitter Ratio: 0.5
     Tree Height: 804
   - Class: rviz_common/Selection
@@ -69,19 +69,36 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        flange:
+        bnc_male_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
+        dsub_male_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gear_large_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gear_medium_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gear_small_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         gripper_base_link:
           Alpha: 1
           Show Axes: false
@@ -91,21 +108,28 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        gripper_onrobot_2fg7left_finger_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        gripper_onrobot_2fg7right_finger_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
           Value: true
         gripper_right_attachment:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        left_onrobot_2fg7left_finger_link:
+          Value: true
+        ket12_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ket16_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ket41_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ket8_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -140,19 +164,75 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        right_onrobot_2fg7right_finger_link:
+        m12_nut_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        tool0:
+        m16_nut_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        world:
+          Value: true
+        m4_nut_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
+        m8_nut_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        mcon-e10-sp_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rcog12-50_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rcog16-50_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rcog4-50_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rcog8-50_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rj45_male_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        taskboard_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tool0_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tray_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        usb_male_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Mass Properties:
         Inertia: false
         Mass: false
@@ -182,90 +262,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          gripper_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_left_attachment:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          gripper_onrobot_2fg7left_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_onrobot_2fg7right_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_right_attachment:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          left_onrobot_2fg7left_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          right_onrobot_2fg7right_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          tool0:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
         Robot Alpha: 1
         Show Robot Collision: false
         Show Robot Visual: false
@@ -301,90 +297,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          gripper_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_left_attachment:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          gripper_onrobot_2fg7left_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_onrobot_2fg7right_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_right_attachment:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          left_onrobot_2fg7left_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          right_onrobot_2fg7right_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          tool0:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
         Loop Animation: false
         Robot Alpha: 0.5
         Robot Color: 150; 50; 150
@@ -431,335 +343,15 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          gripper_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_left_attachment:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          gripper_onrobot_2fg7left_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_onrobot_2fg7right_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          gripper_right_attachment:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          left_onrobot_2fg7left_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_1:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_2:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_3:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_4:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_5:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          link_6:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          right_onrobot_2fg7right_finger_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          tool0:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
         Robot Alpha: 1
         Show Robot Collision: false
         Show Robot Visual: true
       Value: true
       Velocity_Scaling_Factor: 0.1
-    - Alpha: 0.5
-      Class: rviz_default_plugins/CameraInfo
-      Color: 85; 255; 255
-      Edge color: 125; 125; 125
-      Enabled: true
-      Far clip: 1
-      Name: CameraInfo - Wrist
-      Not show side polygons: true
-      Show edges: true
-      Show polygons: true
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /wrist_camera/rgbd/camera_info
-      Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz_default_plugins/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: RGB8
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 4096
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: PointCloud2 - Wrist
-      Position Transformer: XYZ
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.009999999776482582
-      Style: Flat Squares
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /wrist_camera/rgbd/points
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
-    - Alpha: 1
-      Auto Size:
-        Auto Size Factor: 1
-        Value: true
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz_default_plugins/DepthCloud
-      Color: 255; 255; 255
-      Color Image Topic: ""
-      Color Transformer: RGB8
-      Color Transport Hint: raw
-      Decay Time: 0
-      Depth Map Topic: /wrist_camera/rgbd/depth_image
-      Depth Map Transport Hint: raw
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 4096
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: DepthCloud - Wrist
-      Occlusion Compensation:
-        Occlusion Time-Out: 30
-        Value: false
-      Position Transformer: XYZ
-      Queue Size: 5
-      Reliability Policy: Best effort
-      Selectable: true
-      Size (Pixels): 3
-      Style: Flat Squares
-      Topic Filter: true
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
-    - Class: rviz_default_plugins/Image
-      Enabled: false
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image - Wrist, Image
-      Normalize Range: true
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /wrist_camera/rgbd/image
-      Value: false
-    - Class: rviz_default_plugins/Image
-      Enabled: false
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image - Wrist, Depth
-      Normalize Range: true
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /wrist_camera/rgbd/depth_image
-      Value: false
-    - Alpha: 0.5
-      Class: rviz_default_plugins/CameraInfo
-      Color: 85; 255; 255
-      Edge color: 125; 125; 125
-      Enabled: true
-      Far clip: 1
-      Name: CameraInfo - Overhead
-      Not show side polygons: true
-      Show edges: true
-      Show polygons: true
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        Filter size: 10
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /overhead_camera/rgbd/camera_info
-      Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz_default_plugins/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: ""
-      Decay Time: 0
-      Enabled: false
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 4096
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: PointCloud2 - Overhead
-      Position Transformer: ""
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.009999999776482582
-      Style: Flat Squares
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /overhead_camera/rgbd/points
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: false
-    - Alpha: 1
-      Auto Size:
-        Auto Size Factor: 1
-        Value: true
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz_default_plugins/DepthCloud
-      Color: 255; 255; 255
-      Color Image Topic: ""
-      Color Transformer: ""
-      Color Transport Hint: raw
-      Decay Time: 0
-      Depth Map Topic: ""
-      Depth Map Transport Hint: raw
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 4096
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: DepthCloud - Overhead
-      Occlusion Compensation:
-        Occlusion Time-Out: 30
-        Value: false
-      Position Transformer: ""
-      Queue Size: 5
-      Reliability Policy: Best effort
-      Selectable: true
-      Size (Pixels): 3
-      Style: Flat Squares
-      Topic Filter: true
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
-    - Class: rviz_default_plugins/Image
-      Enabled: false
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image - Overhead, Image
-      Normalize Range: true
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /overhead_camera/rgbd/image
-      Value: false
-    - Class: rviz_default_plugins/Image
-      Enabled: false
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image - Overhead, Depth
-      Normalize Range: true
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: ""
-      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: world
     Frame Rate: 30
   Name: root
   Tools:
@@ -802,7 +394,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 0.8068759441375732
+      Distance: 2.8194973468780518
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -817,10 +409,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: -0.02146477997303009
+      Pitch: 0.063535176217556
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.407865524291992
+      Yaw: 4.167869567871094
     Saved: ~
 Window Geometry:
   Displays:
@@ -828,19 +420,11 @@ Window Geometry:
   Height: 1025
   Hide Left Dock: false
   Hide Right Dock: true
-  Image - Overhead, Depth:
-    collapsed: false
-  Image - Overhead, Image:
-    collapsed: false
-  Image - Wrist, Depth:
-    collapsed: false
-  Image - Wrist, Image:
-    collapsed: false
   MotionPlanning:
     collapsed: true
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001b7000003a7fc0200000012fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000003a7000000c900fffffffb0000002e0049006d0061006700650020002d0020004f0076006500720068006500610064002c00200049006d006100670065000000025b000000b50000001600fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100fffffffb0000000c00430061006d0065007200610100000319000000cb0000000000000000fb0000001c00430061006d0065007200610020002d00200057007200690073007400000002760000009d0000000000000000fb0000001a0049006d0061006700650020002d002000570072006900730074010000021f000001090000000000000000fb000000280049006d0061006700650020002d002000570072006900730074002c00200049006d0061006700650000000210000000e50000001600fffffffb000000200049006d0061006700650020002d0020004f00760065007200680065006100640000000319000000cb0000000000000000fb000000280049006d0061006700650020002d002000570072006900730074002c00200044006500700074006800000002a3000000700000001600fffffffb0000002e0049006d0061006700650020002d0020004f0076006500720068006500610064002c00200044006500700074006800000002ac000001380000001600ffffff00000001000001b7000003a7fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fc0000003d000003a70000000000fffffffaffffffff0100000002fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670000000000ffffffff000001b700fffffffb0000000a0056006900650077007300000006710000010f0000010000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000780000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d00650100000000000004500000000000000000000005c3000003a700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001b7000003a7fc0200000012fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed0000043800000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000003a7000000c900fffffffb0000002e0049006d0061006700650020002d0020004f0076006500720068006500610064002c00200049006d006100670065000000025b000000b50000000000000000fb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100fffffffb0000000c00430061006d0065007200610100000319000000cb0000000000000000fb0000001c00430061006d0065007200610020002d00200057007200690073007400000002760000009d0000000000000000fb0000001a0049006d0061006700650020002d002000570072006900730074010000021f000001090000000000000000fb000000280049006d0061006700650020002d002000570072006900730074002c00200049006d0061006700650000000210000000e50000000000000000fb000000200049006d0061006700650020002d0020004f00760065007200680065006100640000000319000000cb0000000000000000fb000000280049006d0061006700650020002d002000570072006900730074002c00200044006500700074006800000002a3000000700000000000000000fb0000002e0049006d0061006700650020002d0020004f0076006500720068006500610064002c00200044006500700074006800000002ac00000138000000000000000000000001000001b7000003a7fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fc0000003d000003a70000000000fffffffaffffffff0100000002fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670000000000ffffffff000001b700fffffffb0000000a0056006900650077007300000006710000010f0000010000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000780000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d00650100000000000004500000000000000000000005c3000003a700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Tool Properties:
@@ -849,4 +433,4 @@ Window Geometry:
     collapsed: true
   Width: 1920
   X: 0
-  Y: 25
+  Y: 1105

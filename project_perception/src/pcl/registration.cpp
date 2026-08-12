@@ -1,5 +1,8 @@
 #include "project_perception/registration.hpp"
 
+#include <pcl/filters/crop_box.h>
+#include <pcl_conversions/pcl_conversions.h>
+
 Registration::Registration(const rclcpp::NodeOptions& options) : Node("registration", options)
 {
 }
@@ -12,6 +15,7 @@ sensor_msgs::msg::PointCloud2::SharedPtr Registration::transformToWorldFrame(
   if (input_cloud->header.frame_id == target_frame)
   {
     RCLCPP_INFO(this->get_logger(), "Point cloud is already in target frame.");
+    return input_cloud;
   }
 
   // Getting the transform
@@ -22,19 +26,17 @@ sensor_msgs::msg::PointCloud2::SharedPtr Registration::transformToWorldFrame(
   }
   catch (tf2::TransformException& ex)
   {
-    RCLCPP_WARN(this->get_logger(), "Could not transform point cloud: %s", ex.what());
-    // return nullptr;
+    RCLCPP_ERROR(this->get_logger(), "Could not transform point cloud: %s", ex.what());
+    return nullptr;  // Return early on error to prevent crash
   }
 
   // Transform the cloud
-  Eigen::Affine3d transform_eigen;
-  transform_eigen = tf2::transformToEigen(transform_stamped);
+  Eigen::Affine3d transform_eigen = tf2::transformToEigen(transform_stamped);
 
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr transformed_cloud(new pcl::PointCloud<pcl::PointXYZRGB>);
-
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr temp_cloud(new pcl::PointCloud<pcl::PointXYZRGB>);
-  pcl::fromROSMsg(*input_cloud, *temp_cloud);
 
+  pcl::fromROSMsg(*input_cloud, *temp_cloud);
   pcl::transformPointCloud(*temp_cloud, *transformed_cloud, transform_eigen);
 
   sensor_msgs::msg::PointCloud2::SharedPtr output_cloud(new sensor_msgs::msg::PointCloud2);
@@ -42,14 +44,41 @@ sensor_msgs::msg::PointCloud2::SharedPtr Registration::transformToWorldFrame(
   output_cloud->header.frame_id = target_frame;
 
   // Log
-  RCLCPP_INFO(this->get_logger(), "Succesfully transformed point cloud to frame: %s", target_frame.c_str());
+  RCLCPP_INFO(this->get_logger(), "Successfully transformed point cloud to frame: %s", target_frame.c_str());
 
   return output_cloud;
 }
+
 sensor_msgs::msg::PointCloud2::SharedPtr
 Registration::cropPointCloud(const pcl::PointCloud<pcl::PointXYZRGB>::Ptr& input_cloud,
                              const std::vector<double>& min_bound, const std::vector<double>& max_bound)
 {
+  auto output_msg = std::make_shared<sensor_msgs::msg::PointCloud2>();
+
+  if (!input_cloud || input_cloud->empty())
+  {
+    RCLCPP_WARN(this->get_logger(), "Input point cloud is empty!");
+    return output_msg;
+  }
+
+  // Apply PCL CropBox filter
+  pcl::CropBox<pcl::PointXYZRGB> crop_box;
+  crop_box.setInputCloud(input_cloud);
+
+  if (min_bound.size() >= 3 && max_bound.size() >= 3)
+  {
+    crop_box.setMin(Eigen::Vector4f(min_bound[0], min_bound[1], min_bound[2], 1.0f));
+    crop_box.setMax(Eigen::Vector4f(max_bound[0], max_bound[1], max_bound[2], 1.0f));
+  }
+
+  pcl::PointCloud<pcl::PointXYZRGB> cropped_cloud;
+  crop_box.filter(cropped_cloud);
+
+  // Convert to ROS message
+  pcl::toROSMsg(cropped_cloud, *output_msg);
+  output_msg->header = pcl_conversions::fromPCL(input_cloud->header);
+
+  return output_msg;
 }
 
 void Registration::showCloudsLeft(const pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_target,
@@ -156,64 +185,44 @@ void Registration::pairAlign(const pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_src
   norm_est.compute(*points_with_normals_tgt);
   pcl::copyPointCloud(*tgt, *points_with_normals_tgt);
 
-  //
-  // Instantiate our custom point representation (defined above) ...
+  // Instantiate point representation
   MyPointRepresentation point_representation;
-  // ... and weight the 'curvature' dimension so that it is balanced against x,
-  // y, and z
   float alpha[4] = { 1.0, 1.0, 1.0, 1.0 };
   point_representation.setRescaleValues(alpha);
 
-  //
   // Align
   pcl::IterativeClosestPointNonLinear<pcl::PointNormal, pcl::PointNormal> reg;
   reg.setTransformationEpsilon(1e-6);
-  // Set the maximum distance between two correspondences (src<->tgt) to 10cm
-  // Note: adjust this based on the size of your datasets
   reg.setMaxCorrespondenceDistance(0.1);
-  // Set the point representation
   reg.setPointRepresentation(pcl::make_shared<const MyPointRepresentation>(point_representation));
 
   reg.setInputSource(points_with_normals_src);
   reg.setInputTarget(points_with_normals_tgt);
 
-  //
-  // Run the same optimization in a loop and visualize the results
   Eigen::Matrix4f Ti = Eigen::Matrix4f::Identity(), prev, targetToSource;
   pcl::PointCloud<pcl::PointNormal>::Ptr reg_result = points_with_normals_src;
   reg.setMaximumIterations(2);
+
   for (int i = 0; i < 30; ++i)
   {
     PCL_INFO("Iteration Nr. %d.\n", i);
 
-    // save cloud for visualization purpose
     points_with_normals_src = reg_result;
 
-    // Estimate
     reg.setInputSource(points_with_normals_src);
     reg.align(*reg_result);
 
-    // accumulate transformation between each Iteration
     Ti = reg.getFinalTransformation() * Ti;
 
-    // if the difference between this transformation and the previous one
-    // is smaller than the threshold, refine the process by reducing
-    // the maximal correspondence distance
     if (std::abs((reg.getLastIncrementalTransformation() - prev).sum()) < reg.getTransformationEpsilon())
       reg.setMaxCorrespondenceDistance(reg.getMaxCorrespondenceDistance() - 0.001);
 
     prev = reg.getLastIncrementalTransformation();
 
-    // visualize current state
     showCloudsRight(points_with_normals_tgt, points_with_normals_src);
   }
 
-  //
-  // Get the transformation from target to source
   targetToSource = Ti.inverse();
-
-  //
-  // Transform target back in source frame
   pcl::transformPointCloud(*cloud_tgt, *output, targetToSource);
 
   pcl_vis_->removePointCloud("source");
@@ -230,8 +239,6 @@ void Registration::pairAlign(const pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_src
   pcl_vis_->removePointCloud("source");
   pcl_vis_->removePointCloud("target");
 
-  // add the source to the transformed target
   *output += *cloud_src;
-
   final_transform = targetToSource;
 }

@@ -28,17 +28,19 @@
     </group_state>
 
     <group_state name="open" group="onrobot_2fg7">
-        <joint name="gripper_gripper_joint" value="0.038"/>
+        <!-- 0.0 is resting at the start position (wide open) -->
+        <joint name="gripper_gripper_joint" value="0.0001"/>
     </group_state>
     
     <group_state name="close" group="onrobot_2fg7">
-        <joint name="gripper_gripper_joint" value="0.001"/>
+        <!-- 0.015 is moved inward (clamped shut) -->
+        <joint name="gripper_gripper_joint" value="0.0089"/>
     </group_state>
 
     <!-- =================================================================== -->
     <!-- END EFFECTOR                                                        -->
     <!-- =================================================================== -->
-    <end_effector name="gripper" parent_link="tool0" group="onrobot_2fg7" parent_group="irb120_arm"/>
+    <end_effector name="onrobot_2fg7" parent_link="tool0" group="onrobot_2fg7" parent_group="irb120_arm"/>
 
     <!-- =================================================================== -->
     <!-- DISABLE COLLISIONS                                                  -->

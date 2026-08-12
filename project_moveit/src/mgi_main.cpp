@@ -1,4 +1,4 @@
-#include "irb1200_moveit/planning_mgi.hpp"
+#include "project_moveit/planning_mgi.hpp"
 // Member function - [this] valid
 // mgi_main.cpp
 void setupNutPickTask(PlanningMGI& planning, const std::string& nut_id)

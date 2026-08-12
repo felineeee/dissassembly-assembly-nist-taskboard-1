@@ -11,7 +11,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # 2. Dependencies Setup
 find_package(ament_cmake REQUIRED)
-find_package(PCL REQUIRED COMPONENTS common features filters io kdtree search segmentation sample_consensus surface)
+find_package(PCL REQUIRED COMPONENTS common features filters io kdtree search segmentation sample_consensus surface visualization)
 find_package(yaml-cpp REQUIRED)
 find_package(project_interfaces REQUIRED)
 
@@ -28,6 +28,8 @@ set(COMMON_DEPS
   moveit_msgs
   geometric_shapes
   ament_index_cpp
+  urdf
+  rviz_visual_tools
 )
 
 set(MOVEIT_DEPS
@@ -53,6 +55,8 @@ add_definitions(-DPCL_NO_PRECOMPILE)
 add_library(${PROJECT_NAME}_lib SHARED
   src/collision_object_utils.cpp
   src/scene_loader.cpp
+  src/scene_loader_nist_taskboard_1.cpp
+  src/scene_loader_api.cpp
   src/pcl/filter.cpp
   src/pcl/helper.cpp
   src/pcl/registration.cpp
@@ -81,7 +85,7 @@ add_executable(perception_server src/perception_server.cpp)
 target_link_libraries(perception_server ${PROJECT_NAME}_lib)
 ament_target_dependencies(perception_server ${COMMON_DEPS} ${MOVEIT_DEPS})
 
-# Scene Loader (Note: Ensure this file has a main() if you want to run it as a node)
+# Scene Loader
 add_executable(scene_loader src/scene_loader.cpp)
 target_link_libraries(scene_loader 
   ${PROJECT_NAME}_lib

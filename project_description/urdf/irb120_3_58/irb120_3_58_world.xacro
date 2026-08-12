@@ -1,14 +1,23 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="irb120_assembly">
 
-  <!-- 1. Pure Robot + Gripper -->
-  <xacro:include filename="$(find project_description)/urdf/irb120_3_58/irb120_3_58_robot.urdf" />
+<!-- Migrating to ABB1200 due to reach issue-->
+<!-- <xacro:include filename="$(find project_description)/urdf/irb120_3_58/irb120_3_58_robot.urdf" /> -->
+<xacro:include filename="$(find project_description)/urdf/irb1200_5_90/irb1200_5_90.urdf" />
 
-  <!-- 2. Root Frame -->
-  <joint name="world_to_robot" type="fixed">
-    <parent link="world" />
-    <child link="base_link" />
-    <origin xyz="0 0.32 0" rpy="0 0 0" />
-  </joint>
+<link name="world"/>
+<joint name="world_to_robot" type="fixed">
+  <parent link="world" />
+  <child link="base_link" />
+  <origin xyz="0 0.32 0" rpy="0 0 0" />
+</joint>
+
+<link name="onrobot_2fg7_tcp" />
+
+<joint name="onrobot_2fg7_tcp_joint" type="fixed">
+  <parent link="gripper_base_link" />
+  <child link="onrobot_2fg7_tcp" />
+  <origin xyz="0 0 0.115" rpy="0 0 0" />
+</joint>
 
 </robot>
