@@ -2,7 +2,9 @@
 This project is an attempt to NIST Taskboard 1 Benchmark. While the benchmark itself is out of the reach for this project. The assembly/disassembly task is an amazing source of learning. This project were built with `ROS2`, `MoveIt2`, utilizing `MTC`(MoveIt Task Constructor). All the `CAD` materials were included in the assembly task. Few adjustment and missing piece were then collected and designed using `FreeCAD`.
 
 ## Preliminary
-I was looking for a suitable project to attempt on assembly/disassembly and come up to this NIST Taskboard 1. At that time, I'm learning the robotics stack of `ROS2` and all of it's library. This project were meant to further hone my skills by practice. This project got me to learn `CAD`, Math behind the robotics, and the software side. This project wasn't easy for a beginner like me. Since I lacks of fundamentals to even attempt this. So I was learning by doing. 
+I was looking for a suitable project to attempt on assembly/disassembly and come up to this NIST Taskboard 1. At that time, I'm learning the robotics stack of `ROS2` and all of it's library. This project were meant to further hone my skills by practice. This project got me to learn `CAD`, Math behind the robotics, and the software side. This project wasn't easy for a beginner like me. Since I lacks of fundamentals to even attempt this. So I was learning by doing.
+
+This project were meant to be inspired from Automatic Addison on ROS 2 Jazzy Pick-and-Place with MoveIt 2 [https://automaticaddison.com/pick-and-place-task-using-moveit-2-and-perception-ros2-jazzy/]. But proven hard on reconstructing complex object. So that the perception part is temporary disposed and using raw mesh/visual instead.
 
 ## System Architecture & Stacks
 - ROS 2 (Jazzy)
@@ -88,3 +90,7 @@ On assembly, I had some physical issue on reach and layout. This going to need m
 - [ ] M8 Bolt on taskboard wasn't arranged properly
 - [ ] Gripper coudn't physically reach middle of the board
 - [ ] Lots of naming issue discrepancy
+
+## Further Plan
+- Using Volumetric / Octree Occupancy for the perception
+- Finishing the assembly/disassembly
