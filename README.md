@@ -39,10 +39,9 @@ Terminal 3: Run task constructor
 ```
 ros2 launch project_moveit task_constructor.launch.py
 ```
-`TBA`
 
 ## Progress
-On assembly, I had some physical issue on reach and layout. This going to need more study to solve. For example, the robot can't physically reach some place with some pose. Gripper cannot physically reach the middle of the board. So, task constructor cannot do it in one go (Pick->Rearrange->Pick->Assemble). This parts introduce more challenges.
+On assembly, I had some physical issue on reach and layout. This going to need more study to solve. For example, the robot can't physically reach some place with some pose. Gripper cannot physically reach the middle of the board approaching sideways. So, task constructor cannot do it in one go (Pick->Rearrange->Pick->Assemble). This parts introduce more challenges.
 
 | No | Name | Description | `partname_link` | Checklist |
 | --- | --- | --- | --- | --- |
