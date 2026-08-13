@@ -13,12 +13,72 @@ I was looking for a suitable project to attempt on assembly/disassembly and come
 
 ## CAD & Custom adjustment
 
-
 ## Installation
+You have to complete the preequisite installation of `ROS2` project so its build ready. Read the documentation [documentation] here.
+
+Build the project
+```
+colcon build --packages-select project_moveit project_bringup project_description project_perception
+```
+Open 3 terminal on project directory
+```
+source install/setup.bash
+```
+
+Terminal 1: Run the robot rviz and all preequisite
+```
+ros2 launch project_description project irb120_rviz_taskboard.launch.py
+```
+
+Terminal 2: Run scene loader
+```
+ros2 run project_perception scene_loader
+```
+
+Terminal 3: Run task constructor
+```
+ros2 launch project_moveit task_constructor.launch.py
+```
 `TBA`
 
-## 
-## Known Issue & Workaround
+## Progress
 
+### Component Parts Checklist
+Here is the table with the Part Number column removed and replaced with the `partname_link` column formatted as requested.
+
+### Component Parts Checklist
+On assembly, I had some physical issue on reach and layout. This going to need more study to solve. For example, the robot can't physically reach some place with some pose. Gripper cannot physically reach the middle of the board. So, task constructor cannot do it in one go (Pick->Rearrange->Pick->Assemble). This parts introduce more challenges.
+
+| No | Name | Description | `partname_link` | Checklist |
+| --- | --- | --- | --- | --- |
+| **M-Series Nuts** |  |  |  |  |
+| 1 | M4 Nut |  | `m4_nut_link` | [x] |
+| 2 | M6 Nut |  | `m6_nut_link` | [x] |
+| 3 | M8 Nut |  | `m8_nut_link` | [x] |
+| 4 | M12 Nut |  | `m12_nut_link` | [x] |
+| 5 | M16 Nut |  | `m16_nut_link` | [ ] |
+| **KET Series (Square Bars)** |  |  |  |  |
+| 6 | KET4 Bar |  | `ket4_link` | [ ] |
+| 7 | KET8 Bar |  | `ket8_link` | [ ] |
+| 8 | KET12 Bar |  | `ket12_link` | [ ] |
+| 9 | KET16 Bar |  | `ket16_link` | [ ] |
+| **RGOCG Series (Round Rods)** |  |  |  |  |
+| 10 | RGOCG4 Rod |  | `rgocg4_50_link` | [ ] |
+| 11 | RGOCG8 Rod |  | `rgocg8_50_link` | [x] |
+| 12 | RGOCG12 Rod |  | `rgocg12_50_link` | [x] |
+| 13 | RGOCG16 Rod |  | `rgocg16_50_link` | [x] |
+| **Gear Series** |  |  |  |  |
+| 14 | Small Gear |  | `gear_small_link` | [ ] |
+| 15 | Medium Gear |  | `gear_medium_link` | [ ] |
+| 16 | Large Gear |  | `gear_large_link` | [ ] |
+| **Connectors (Plugs & Jacks)** |  |  |  |  |
+| 19 | BNC Male Connector |  | `bnc_male_link` | [ ] |
+| 21 | Male Waterproof Connector |  | `mcon-310-sp_link` | [ ] |
+| 23 | DSUB Male Connector |  | `dsub_male__link` | [ ] |
+| 25 | USB Male Cable |  | `usb_male_cable_link` | [ ] |
+| 27 | RJ45 Male Connector |  | `rj45_male__link` | [ ] |
+
+## Known Issue & Workaround
 - [ ] M8 Bolt on taskboard wasn't arranged properly
 - [ ] Gripper coudn't physically reach middle of the board
+- [ ] Lots of naming issue discrepancy
