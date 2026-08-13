@@ -11,7 +11,10 @@ I was looking for a suitable project to attempt on assembly/disassembly and come
 - Robot model (IRB120, IRB1200)
 - Gripper model (Onrobot 2fg7, Robotiq 2f-80/2f-140)
 
-## CAD & Custom adjustment
+## Demonstration
+<video src="documentation/assembly_example.mp4" width="100%" controls>
+  Your browser does not support the video tag.
+</video>
 
 ## Installation
 You have to complete the preequisite installation of `ROS2` project so its build ready. Read the documentation [documentation] here.
