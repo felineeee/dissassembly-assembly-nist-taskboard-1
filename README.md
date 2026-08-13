@@ -43,6 +43,16 @@ Terminal 3: Run task constructor
 ros2 launch project_moveit task_constructor.launch.py
 ```
 
+Note
+You have to manually comment/comment out the assembly steps. Due to performance issue.
+```
+  addNutTasks(task);
+  // addKetTasks(task);
+  // addRcogTasks(task);
+  // addConnectorTasks(task);
+  // addGearTasks(task);
+```
+
 ## Progress
 On assembly, I had some physical issue on reach and layout. This going to need more study to solve. For example, the robot can't physically reach some place with some pose. Gripper cannot physically reach the middle of the board approaching sideways. So, task constructor cannot do it in one go (Pick->Rearrange->Pick->Assemble). This parts introduce more challenges.
 
