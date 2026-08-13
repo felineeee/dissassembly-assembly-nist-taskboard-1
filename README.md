@@ -12,9 +12,9 @@ I was looking for a suitable project to attempt on assembly/disassembly and come
 - Gripper model (Onrobot 2fg7, Robotiq 2f-80/2f-140)
 
 ## Demonstration
-<video src="documentation/assembly_example.mp4" width="100%" controls>
+[<video src="documentation/assembly_example.mp4" width="100%" controls>
   Your browser does not support the video tag.
-</video>
+</video>](https://github.com/user-attachments/assets/b392f69f-16ba-4f2d-aca1-f96744f5c745)
 
 ## Installation
 You have to complete the preequisite installation of `ROS2` project so its build ready. Read the documentation [documentation] here.
