@@ -112,10 +112,10 @@ mtc::Task TaskConstructor::createTask()
 
   // DEBUG
   // 2. Build Modular Assembly Steps
-  // addNutTasks(task);
+  addNutTasks(task);
   // addKetTasks(task);
   // addRcogTasks(task);
-  addConnectorTasks(task);
+  // addConnectorTasks(task);
   // addGearTasks(task);
 
   return task;
@@ -141,13 +141,15 @@ void TaskConstructor::addNutTasks(mtc::Task& task)
 
     // 0.0426 from jaw
     // 0.144 from base
-    grasp_tf.translation().z() = 0.0394;  // 0.0426-0.0032 (m4 nut height)
+    // 0.0426-0.0032 (m4 nut height) onrobot-2fg7
+    // 0.032 - 0.0032 robotiq 2f-85
+    grasp_tf.translation().z() = 0.009;
 
     geometry_msgs::msg::PoseStamped pose;
     pose.header.frame_id = "taskboard_link";
 
-    pose.pose.position.x = 0.0;
-    pose.pose.position.y = -0.074;
+    pose.pose.position.x = 0.0005;
+    pose.pose.position.y = -0.075;
     pose.pose.position.z = 0.007;  // taskboard 0.1755,  but this relative
 
     pose.pose.orientation.x = 0.0;
@@ -178,7 +180,7 @@ void TaskConstructor::addNutTasks(mtc::Task& task)
     grasp_tf.linear() = Eigen::AngleAxisd(M_PI, Eigen::Vector3d::UnitY()).toRotationMatrix();
 
     // 0.0068
-    grasp_tf.translation().z() = 0.0358;
+    grasp_tf.translation().z() = 0.009;
 
     geometry_msgs::msg::PoseStamped pose;
     pose.header.frame_id = "taskboard_link";
@@ -215,7 +217,7 @@ void TaskConstructor::addNutTasks(mtc::Task& task)
 
     // 0.0108
     // grasp_tf.translation().z() = 0.0318;
-    grasp_tf.translation().z() = 0.0054;
+    grasp_tf.translation().z() = 0.009;
 
     geometry_msgs::msg::PoseStamped pose;
     pose.header.frame_id = "taskboard_link";
@@ -243,42 +245,42 @@ void TaskConstructor::addNutTasks(mtc::Task& task)
   }
 
   // --- M16 Nut ---
-  // Still havent been solved
-  {
-    const std::string name = "m16_nut_link";
-    Eigen::Isometry3d grasp_tf = Eigen::Isometry3d::Identity();
-    grasp_tf.linear() = (Eigen::AngleAxisd(M_PI / 2.0, Eigen::Vector3d::UnitY()) *
-                         Eigen::AngleAxisd(M_PI / 2.0, Eigen::Vector3d::UnitZ()))
-                            .toRotationMatrix();
+  // UNSOLVED
+  // {
+  //   const std::string name = "m16_nut_link";
+  //   Eigen::Isometry3d grasp_tf = Eigen::Isometry3d::Identity();
+  //   grasp_tf.linear() = (Eigen::AngleAxisd(M_PI / 2.0, Eigen::Vector3d::UnitY()) *
+  //                        Eigen::AngleAxisd(M_PI / 2.0, Eigen::Vector3d::UnitZ()))
+  //                           .toRotationMatrix();
 
-    // 0.0148
-    grasp_tf.translation().z() = 0.0278;
+  //   // 0.0148
+  //   grasp_tf.translation().z() = 0.0278;
 
-    geometry_msgs::msg::PoseStamped pose;
-    pose.header.frame_id = "taskboard_link";
+  //   geometry_msgs::msg::PoseStamped pose;
+  //   pose.header.frame_id = "taskboard_link";
 
-    pose.pose.position.x = -0.150;
-    pose.pose.position.y = -0.145;
-    pose.pose.position.z = 0.009;
+  //   pose.pose.position.x = -0.150;
+  //   pose.pose.position.y = -0.145;
+  //   pose.pose.position.z = 0.009;
 
-    pose.pose.orientation.x = 0.7071;
-    pose.pose.orientation.y = 0.7071;
-    pose.pose.orientation.z = 0.0;
-    pose.pose.orientation.w = 1.0;
+  //   pose.pose.orientation.x = 0.7071;
+  //   pose.pose.orientation.y = 0.7071;
+  //   pose.pose.orientation.z = 0.0;
+  //   pose.pose.orientation.w = 1.0;
 
-    double pitch = 0.002;
-    double max_turns = 1.0;
-    double twist = max_turns * (2.0 * M_PI);
+  //   double pitch = 0.002;
+  //   double max_turns = 1.0;
+  //   double twist = max_turns * (2.0 * M_PI);
 
-    mtc::Stage* attach_stage = nullptr;
-    task.add(createConnectStage("connect_to_pick_" + name, config_.arm_group, solvers_.sampling));
-    task.add(createPickContainer(task, config_, name, grasp_tf, solvers_, current_state_ptr_, &attach_stage));
+  //   mtc::Stage* attach_stage = nullptr;
+  //   task.add(createConnectStage("connect_to_pick_" + name, config_.arm_group, solvers_.sampling));
+  //   task.add(createPickContainer(task, config_, name, grasp_tf, solvers_, current_state_ptr_, &attach_stage));
 
-    task.add(createConnectStage("connect_to_fasten_" + name, config_.arm_group, solvers_.sampling));
-    task.add(createFastenContainer(task, config_, name, pose, solvers_, attach_stage, twist, pitch));
+  //   task.add(createConnectStage("connect_to_fasten_" + name, config_.arm_group, solvers_.sampling));
+  //   task.add(createFastenContainer(task, config_, name, pose, solvers_, attach_stage, twist, pitch));
 
-    restoreCollision(task, name, "taskboard_link", current_state_ptr_);
-  }
+  //   restoreCollision(task, name, "taskboard_link", current_state_ptr_);
+  // }
   {
     auto stage = std::make_unique<mtc::stages::MoveTo>("return_home", solvers_.sampling);
     stage->setGroup(config_.arm_group);
@@ -296,6 +298,7 @@ void TaskConstructor::addKetTasks(mtc::Task& task)
    */
 
   // KET 4
+  // UNSOLVED
   /*
    * - Pick->Slide-in is impossible due to the width of the base
    * - Pick->Stage->Pick->Slide-in is still error on cartesian_path
@@ -358,6 +361,7 @@ void TaskConstructor::addKetTasks(mtc::Task& task)
   // }
 
   // -- -KET 8 -- -
+  // UNSOLVED
   // {
   //   const std::string name = "ket8_link";
   //   Eigen::Isometry3d grasp_tf = Eigen::Isometry3d::Identity();
@@ -381,7 +385,8 @@ void TaskConstructor::addKetTasks(mtc::Task& task)
   //   restoreCollision(task, name, "taskboard_link", current_state_ptr_);
   // }
 
-  // // --- KET 12 ---
+  // --- KET 12 ---
+  // UNSOLVED
   // {
   //   const std::string name = "ket12_link";
   //   Eigen::Isometry3d grasp_tf = Eigen::Isometry3d::Identity();
@@ -417,7 +422,9 @@ void TaskConstructor::addKetTasks(mtc::Task& task)
 
     // 3. Combine them (Post-multiply for local frame rotation)
     grasp_tf.linear() = top_down * z_rotation;
-    grasp_tf.translation().z() = 0.0034;
+
+    // 0.032 - 0.004
+    grasp_tf.translation().z() = 0.0028;
 
     geometry_msgs::msg::PoseStamped pose;
     pose.header.frame_id = "taskboard_link";
@@ -450,6 +457,7 @@ void TaskConstructor::addKetTasks(mtc::Task& task)
 void TaskConstructor::addRcogTasks(mtc::Task& task)
 {
   // --- RCOG 4 ---
+  // UNSOLVED
   // {
   //   const std::string name = "rcog4_50_link";
   //   Eigen::Isometry3d grasp_tf = Eigen::Isometry3d::Identity();
@@ -486,7 +494,7 @@ void TaskConstructor::addRcogTasks(mtc::Task& task)
     Eigen::Isometry3d grasp_tf = Eigen::Isometry3d::Identity();
     grasp_tf.linear() = Eigen::AngleAxisd(M_PI, Eigen::Vector3d::UnitY()).toRotationMatrix();
 
-    grasp_tf.translation().z() = 0.034;
+    grasp_tf.translation().z() = 0.028;
 
     geometry_msgs::msg::PoseStamped pose;
     pose.header.frame_id = "taskboard_link";
