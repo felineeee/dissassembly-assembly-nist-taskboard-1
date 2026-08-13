@@ -47,30 +47,29 @@ On assembly, I had some physical issue on reach and layout. This going to need m
 | --- | --- | --- | --- | --- |
 | **M-Series Nuts** |  |  |  |  |
 | 1 | M4 Nut |  | `m4_nut_link` | [x] |
-| 2 | M6 Nut |  | `m6_nut_link` | [x] |
-| 3 | M8 Nut |  | `m8_nut_link` | [x] |
-| 4 | M12 Nut |  | `m12_nut_link` | [x] |
-| 5 | M16 Nut |  | `m16_nut_link` | [ ] |
+| 2 | M8 Nut |  | `m8_nut_link` | [x] |
+| 3 | M12 Nut |  | `m12_nut_link` | [x] |
+| 4 | M16 Nut |  | `m16_nut_link` | [ ] |
 | **KET Series (Square Bars)** |  |  |  |  |
-| 6 | KET4 Bar |  | `ket4_link` | [ ] |
-| 7 | KET8 Bar |  | `ket8_link` | [ ] |
-| 8 | KET12 Bar |  | `ket12_link` | [ ] |
-| 9 | KET16 Bar |  | `ket16_link` | [ ] |
+| 5 | KET4 Bar |  | `ket4_link` | [ ] |
+| 6 | KET8 Bar |  | `ket8_link` | [ ] |
+| 7 | KET12 Bar |  | `ket12_link` | [ ] |
+| 8 | KET16 Bar |  | `ket16_link` | [ ] |
 | **RGOCG Series (Round Rods)** |  |  |  |  |
-| 10 | RGOCG4 Rod |  | `rgocg4_50_link` | [ ] |
-| 11 | RGOCG8 Rod |  | `rgocg8_50_link` | [x] |
-| 12 | RGOCG12 Rod |  | `rgocg12_50_link` | [x] |
-| 13 | RGOCG16 Rod |  | `rgocg16_50_link` | [x] |
+| 9 | RGOCG4 Rod |  | `rgocg4_50_link` | [ ] |
+| 10 | RGOCG8 Rod |  | `rgocg8_50_link` | [x] |
+| 11 | RGOCG12 Rod |  | `rgocg12_50_link` | [x] |
+| 12 | RGOCG16 Rod |  | `rgocg16_50_link` | [x] |
 | **Gear Series** |  |  |  |  |
-| 14 | Small Gear |  | `gear_small_link` | [ ] |
-| 15 | Medium Gear |  | `gear_medium_link` | [ ] |
-| 16 | Large Gear |  | `gear_large_link` | [ ] |
+| 13 | Small Gear |  | `gear_small_link` | [ ] |
+| 14 | Medium Gear |  | `gear_medium_link` | [ ] |
+| 15 | Large Gear |  | `gear_large_link` | [ ] |
 | **Connectors (Plugs & Jacks)** |  |  |  |  |
-| 19 | BNC Male Connector |  | `bnc_male_link` | [ ] |
-| 21 | Male Waterproof Connector |  | `mcon-310-sp_link` | [ ] |
-| 23 | DSUB Male Connector |  | `dsub_male__link` | [ ] |
-| 25 | USB Male Cable |  | `usb_male_cable_link` | [ ] |
-| 27 | RJ45 Male Connector |  | `rj45_male__link` | [ ] |
+| 16 | BNC Male Connector |  | `bnc_male_link` | [ ] |
+| 17 | Male Waterproof Connector |  | `mcon-310-sp_link` | [ ] |
+| 18 | DSUB Male Connector |  | `dsub_male__link` | [ ] |
+| 19 | USB Male Cable |  | `usb_male_cable_link` | [ ] |
+| 20 | RJ45 Male Connector |  | `rj45_male__link` | [ ] |
 
 ## Known Issue & Workaround
 - [ ] M8 Bolt on taskboard wasn't arranged properly
